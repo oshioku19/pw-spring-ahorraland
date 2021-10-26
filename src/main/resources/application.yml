@@ -1,11 +1,11 @@
 server:
-  port: 8105
+  port: 8082
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/AhorraLand
     username: postgres
-    password: traviesa88
+    password: postgres
   jpa:
     database: postgresql
     hibernate:
