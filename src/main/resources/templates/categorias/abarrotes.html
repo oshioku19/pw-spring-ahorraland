@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+
+
+<title>AhorraLand</title>
+</head>
+<body>
+	<header th:replace="layout::header">
+	
+		
+	</header>
+	<main>
+	<div id="carouselExampleIndicators" class="carousel slide"
+			data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="0" class="active" aria-current="true"
+					aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="2" aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="images/img2.png" class="d-block w-100">
+				</div>
+				<div class="carousel-item">
+					<img src="images/ofertas.png" class="d-block w-100">
+				</div>
+
+			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<div class="page-content">
+        <div class="product-container">
+            <h3>Aceite</h3>
+            <img src="images/products/aceite.jpg" />
+            <h1>S/.2.00</h1>
+            <button class="button-add" onclick="add('aceite', 50)">Agregar</button>
+        </div>
+
+        <div class="product-container">
+            <h3>Fideos</h3>
+            <img src="images/products/fideos.jpg" />
+            <h1>S/.3.00</h1>
+            <button class="button-add" onclick="add('fideos', 300)">Agregar</button>
+        </div>
+
+        <div class="product-container">
+            <h3>Atun</h3>
+            <img src="images/products/atun.jpg" />
+            <h1>S/.5.00</h1>
+            <button class="button-add" onclick="add('atun', 250)">Agregar</button>
+        </div>
+
+
+        <div class="product-container">
+            <h3>Yogurt</h3>
+            <img src="images/products/yogurt.jpg" />
+            <h1>S/.4.50</h1>
+            <button class="button-add" onclick="add('yogurt', 650)">Agregar</button>
+        </div>
+        
+
+        
+    </div>
+
+	</main>
+	<footer th:replace="layout::footer" >
+
+</footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	
+</body>
+</html>

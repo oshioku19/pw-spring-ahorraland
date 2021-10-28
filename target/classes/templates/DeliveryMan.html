@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="home :: head">
+<head th:replace="layout :: head">
 
 <title>Repartidor</title>
 </head>
 <body>
-	<header th:replace="home :: header"> </header>
+	<header th:replace="layout :: header"> </header>
+	
 	
 	<section class="deliveryMan">
 		<div class="container py-5">
@@ -99,6 +100,6 @@
 		</div>
 	</section>
 
-	<footer th:replace="home :: footer"> </footer>
+	<footer th:replace="layout :: footer"> </footer>
 </body>
 </html>

@@ -1,37 +1,35 @@
-
-
 .img {
-	border-radius: 10px;
-	-webkit-box-shadow: 10px 17px 60px -31px rgba(0, 0, 0, 0.75);
-	-moz-box-shadow: 10px 17px 60px -31px rgba(0, 0, 0, 0.75);
-	box-shadow: 10px 17px 60px -31px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 17px 60px -31px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 17px 60px -31px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 17px 60px -31px rgba(0, 0, 0, 0.75);
 }
 
 .p1 {
-	font-weight: lighter;
-	color: gray;
-	font-size: 21px;
+    font-weight: lighter;
+    color: gray;
+    font-size: 21px;
 }
 
 p {
-	font-weight: lighter;
-	
+    font-weight: lighter;
+
 }
 
 small {
-	font-weight: bold;
-	color: gray;
+    font-weight: bold;
+    color: gray;
 }
 
 .fa-star {
-	color: #FBB700;
-	font-size: 21px;
+    color: #FBB700;
+    font-size: 21px;
 }
 
 button {
-	color: #FBB700;
+    color: #FBB700;
 }
 
 .buttons-deliveryman {
-	margin-top: 10px;
+    margin-top: 10px;
 }

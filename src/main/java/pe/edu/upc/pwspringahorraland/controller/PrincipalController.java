@@ -24,4 +24,19 @@ public class PrincipalController {
 		return "Profile";
 	}
 	
+	
+	@GetMapping("a1")
+	public String Abarrotes() {
+		return "categorias/abarrotes";
+	}
+	@GetMapping("Enlatados")
+	public String Enlatados() {
+		return "categorias/Enlatados";
+	}
+	@GetMapping("lacteos")
+	public String lacteos() {
+		return "categorias/lacteos";
+	}
+	
+	
 }
