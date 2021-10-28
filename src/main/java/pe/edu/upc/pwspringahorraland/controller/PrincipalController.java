@@ -18,4 +18,19 @@ public class PrincipalController {
 		return "NewFile";
 	}
 	
+	
+	@GetMapping("a1")
+	public String Abarrotes() {
+		return "abarrotes";
+	}
+	@GetMapping("Enlatados")
+	public String Enlatados() {
+		return "Enlatados";
+	}
+	@GetMapping("lacteos")
+	public String lacteos() {
+		return "lacteos";
+	}
+	
+	
 }

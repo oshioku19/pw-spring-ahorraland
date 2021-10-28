@@ -1,14 +1,15 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 <link th:href="@{/css/fontawesome.min.css}" rel="stylesheet">
 <link th:href="@{/css/solid.min.css}" rel="stylesheet">
 <link th:href="@{/css/style.css}" rel="stylesheet">
-
+<link rel="stylesheet" href="estilos.css">
 <title>AhorraLand</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="/">Inicio</a></li>
 						<li class="nav-item dropdown"><a
@@ -38,16 +39,15 @@
 								<li><a class="dropdown-item" href="#"></a></li>
 								<li><a class="dropdown-item" href="#">Abarrotes</a></li>
 								<li><a class="dropdown-item" href="#">Enlatados</a></li>
-								<li><a class="dropdown-item" href="lacteos">Lacteos</a></li>
-								<li><a class="dropdown-item" href="Botanas">Botanas</a></li>
-								<li><a class="dropdown-item" href="Bebidas">Bebidas</a></li>
-								<li><a class="dropdown-item" href="Bebidas">Bebidas
+								<li><a class="dropdown-item" href="#">Lacteos</a></li>
+								<li><a class="dropdown-item" href="#">Botanas</a></li>
+								<li><a class="dropdown-item" href="#">Bebidas</a></li>
+								<li><a class="dropdown-item" href="#">Bebidas
 										Alcoholicas</a></li>
-								<li><a class="dropdown-item" href="Harinas">Harinas</a></li>
-								<li><a class="dropdown-item" href="Productos de
-										limpieza">Productos de
+								<li><a class="dropdown-item" href="#">Harinas</a></li>
+								<li><a class="dropdown-item" href="#">Productos de
 										limpieza</a></li>
-								<li><a class="dropdown-item" href="Higiene personal">Higiene personal</a></li>
+								<li><a class="dropdown-item" href="#">Higiene personal</a></li>
 
 							</ul></li>
 						<form class="d-flex">
@@ -73,7 +73,6 @@
 		</nav>
 		
 	</header>
-	<main>
 	<div id="carouselExampleIndicators" class="carousel slide"
 			data-bs-ride="carousel">
 			<div class="carousel-indicators">
@@ -105,41 +104,9 @@
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
-		<div class="page-content">
-        <div class="product-container">
-            <h3>Aceite</h3>
-            <img src="images/products/aceite.jpg" />
-            <h1>S/.2.00</h1>
-            <button class="button-add" onclick="add('aceite', 50)">Agregar</button>
-        </div>
+		
 
-        <div class="product-container">
-            <h3>Fideos</h3>
-            <img src="images/products/fideos.jpg" />
-            <h1>S/.3.00</h1>
-            <button class="button-add" onclick="add('fideos', 300)">Agregar</button>
-        </div>
-
-        <div class="product-container">
-            <h3>Atun</h3>
-            <img src="images/products/atun.jpg" />
-            <h1>S/.5.00</h1>
-            <button class="button-add" onclick="add('atun', 250)">Agregar</button>
-        </div>
-
-
-        <div class="product-container">
-            <h3>Yogurt</h3>
-            <img src="images/products/yogurt.jpg" />
-            <h1>S/.4.50</h1>
-            <button class="button-add" onclick="add('yogurt', 650)">Agregar</button>
-        </div>
-        
-
-        
-    </div>
-
-	</main>
+	
 	<footer th:fragment="footer" >
   <div class="container py-5">
     <div class="row">
@@ -171,6 +138,5 @@
   </div>
 </footer>
 	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-	
 </body>
 </html>
