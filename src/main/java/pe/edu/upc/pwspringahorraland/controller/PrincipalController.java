@@ -27,15 +27,15 @@ public class PrincipalController {
 	
 	@GetMapping("a1")
 	public String Abarrotes() {
-		return "abarrotes";
+		return "categorias/abarrotes";
 	}
 	@GetMapping("Enlatados")
 	public String Enlatados() {
-		return "Enlatados";
+		return "categorias/Enlatados";
 	}
 	@GetMapping("lacteos")
 	public String lacteos() {
-		return "lacteos";
+		return "categorias/lacteos";
 	}
 	
 	
