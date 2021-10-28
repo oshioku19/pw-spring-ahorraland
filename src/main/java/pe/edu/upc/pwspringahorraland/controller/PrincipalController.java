@@ -18,4 +18,14 @@ public class PrincipalController {
 		return "NewFile";
 	}
 	
+	@GetMapping("deliveryman")
+	public String deliveryman() {
+		return "DeliveryMan";
+	}
+	
+	@GetMapping("profile")
+	public String profile() {
+		return "Profile";
+	}
+	
 }
