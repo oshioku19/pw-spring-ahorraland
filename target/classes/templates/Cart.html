@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+<title>Carrito-Ahorraland</title>
+</head>
+<body>
+	<header th:replace="layout :: header"></header>
+	<div class="progress">
+		<div class="progress-bar" role="progressbar" style="width: 25%;"
+			aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> 25 %</div>
+	</div>
+
+	<div class="card" style="width: 50rem;">
+		<div class="card-body">
+			<h3 class="card-title">Carrito de compra</h3>
+			<h6 class=”Action”>Remover todo</h6>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col"></th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+					<th scope="col">Producto</th>
+					<th scope="col"></th>
+					<th scope="col">Precio</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row"></th>
+					<td><button type="button" class="btn btn-danger">
+							<i class="fas fa-trash"></i>
+						</button></td>
+					<td><img src="images/fideos.jpg" width="120" height="auto"></td>
+					<td><h6 class="text-cart">Fideo Don Vitorio</h6></td>
+					<td><div class="product-quantity">
+							<input type="number" value="1" min="1">
+						</div></td>
+					<td><h6 class="text-cart">S/.2.50</h6></td>
+				</tr>
+
+				<tr>
+					<th scope="row"></th>
+					<td><button type="button" class="btn btn-danger">
+							<i class="fas fa-trash"></i>
+						</button></td>
+					<td><img src="images/papas_lays.jpg" width="120" height="auto"></td>
+					<td><h6 class="text-cart">Lays Clasicas</h6></td>
+					<td><div class="product-quantity">
+							<input type="number" value="1" min="1">
+						</div></td>
+					<td><h6 class="text-cart">S/.2.50</h6></td>
+				</tr>
+				<tr>
+					<th scope="row"></th>
+					<td><button type="button" class="btn btn-danger">
+							<i class="fas fa-trash"></i>
+						</button></td>
+					<td><img src="images/lata_durazno.jpg" width="120"
+						height="auto"></td>
+					<td><h6 class="text-cart">Arica Duraznos</h6></td>
+					<td><div class="product-quantity">
+							<input type="number" value="1" min="1">
+						</div></td>
+					<td><h6 class="text-cart">S/.2.50</h6></td>
+				</tr>
+
+			</tbody>
+
+		</table>
+		<div>
+			<div class="checkout">
+				<div class="total">Sub-Total</div>
+				<div class="money">S/.6.18</div>
+			</div>
+			<a href="#" class="btn btn-success">Continuar</a>
+		</div>
+
+
+	</div>
+	<footer th:replace="layout :: footer"> </footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
