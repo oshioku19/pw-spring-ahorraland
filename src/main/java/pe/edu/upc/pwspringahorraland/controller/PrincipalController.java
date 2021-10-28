@@ -14,4 +14,14 @@ public class PrincipalController {
 	}
 
 	
+	@GetMapping("deliveryman")
+	public String deliveryman() {
+		return "DeliveryMan";
+	}
+	
+	@GetMapping("profile")
+	public String profile() {
+		return "Profile";
+	}
+	
 }
