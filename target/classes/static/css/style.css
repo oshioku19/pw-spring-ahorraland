@@ -81,7 +81,7 @@ footer {
 	padding: 50px 0;
 }
 
-.btn{
+.btn.btn-light{
 	color: white;
 	background-color: #5E17EB;
 }
@@ -93,3 +93,4 @@ footer {
 .form-control{
 	size: 35%;
 }
+
