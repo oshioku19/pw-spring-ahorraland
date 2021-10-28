@@ -12,11 +12,7 @@ public class PrincipalController {
 	public String home() {
 		return "home";
 	}
-	
-	@GetMapping("file")
-	public String file() {
-		return "NewFile";
-	}
+
 	
 	@GetMapping("deliveryman")
 	public String deliveryman() {
