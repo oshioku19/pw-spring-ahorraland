@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="home :: head">
+<head th:replace="layout :: head">
 
 <title>Perfil</title>
 </head>
 <body>
-	<header th:replace="home :: header"> </header>
+	<header th:replace="layout :: header"> </header>
 	
 
 	
@@ -15,9 +15,9 @@
         <div class="bg-white shadow rounded overflow-hidden">
             <div class="px-4 pt-0 pb-5 cover">
                 <div class="media align-items-end profile-head">
-                    <div class="profile mr-3"><img src="images/deliveryman/chamo.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
-                    <div class="media-body mb-5 text-white">
-                        <h4 class="mt-0 mb-0">Pedro Maduro Chará</h4>
+                    <div class="profile mr-3"><img src="images/deliveryman/dm1.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
+                    <div class="media-body mb-5 text-black">
+                        <h4 class="mt-0 mb-0"  th:text="${deliveryMan.name}">Name</h4>
                         <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-10" style="margin-right: 5px"></i> La Perla, Callao</p>
                     </div>
                 </div>
@@ -25,19 +25,17 @@
             <div class="bg-light p-4 d-flex justify-content-end text-center">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">2,5</h5><small class="text-muted"> <i class="fas fa-star mr-1" style="margin-right: 5px"></i>Calificación</small>
+                        <h5 class="font-weight-bold mb-0 d-block" th:text="${deliveryMan.rating}">Rating</h5><small class="text-muted"> <i class="fas fa-star mr-1" style="margin-right: 5px"></i>Calificación</small>
                     </li>
                     <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">54</h5><small class="text-muted"> <i class="fas fa-shopping-bag" style="margin-right: 5px"></i>Ventas</small>
+                        <h5 class="font-weight-bold mb-0 d-block" th:text="${deliveryMan.sales}">Sales</h5><small class="text-muted" > <i class="fas fa-shopping-bag" style="margin-right: 5px"></i>Ventas</small>
                     </li>
                 </ul>
             </div>
             <div class="px-4 py-3">
                 <h5 class="mb-0">Información</h5>
                 <div class="p-4 rounded shadow-sm bg-light">
-                    <p class="font-italic mb-0">Lima, Perú</p>
-                    <p class="font-italic mb-0">Venezolano</p>
-                    <p class="font-italic mb-0">Desde 2021-1</p>
+                    <p class="font-italic mb-0" th:text="${deliveryMan.bio}">Bio</p>
                 </div>
             </div>
             <div class="py-4 px-4">
@@ -53,6 +51,6 @@
     </div>
 </div>
 	
-	<footer th:replace="home :: footer"> </footer>
+	<footer th:replace="layout :: footer"> </footer>
 </body>
 </html>

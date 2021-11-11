@@ -3,9 +3,9 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/AhorraLand
+    url: jdbc:postgresql://localhost:5432/AhorraLandSpring
     username: postgres
-    password: traviesa88
+    password: postgresql2021
   jpa:
     database: postgresql
     hibernate:
