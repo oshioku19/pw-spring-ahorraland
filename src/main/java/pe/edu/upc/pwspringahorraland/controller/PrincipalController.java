@@ -18,8 +18,18 @@ public class PrincipalController {
 	// -- return "DeliveryMan";
 	// --}
 
+	//--@GetMapping("shipping")
+	//--public String shipping() {
+	//--return "Shipping";
+	//--}
+	
+	@GetMapping("status")
+	public String status() {
+		return "shipping/status";
+	}
+	
 	@GetMapping("profile")
-		public String profile() {
+	public String profile() {
 		return "Profile";
 	}
 

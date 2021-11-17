@@ -30,6 +30,12 @@ public class Shipping {
 
     @Column (name="TDestinationAdress",length=50,nullable=false)
     private String direction;
+    
+    @Column (name="NumFlatApartment",length=50,nullable=true)
+    private String flat;
+    
+    @Column (name="TReference",length=50,nullable=true)
+    private String reference;
 
     @ManyToOne
     @JoinColumn(name="CDeliveryMan",nullable=false)
@@ -67,8 +73,20 @@ public class Shipping {
 		this.deliveryman = deliveryman;
 	}
 
-    
-    
+	public String getFlat() {
+		return flat;
+	}
 
+	public void setFlat(String flat) {
+		this.flat = flat;
+	}
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
 
 }

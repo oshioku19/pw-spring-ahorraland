@@ -12,15 +12,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pe.edu.upc.pwspringahorraland.business.crud.DeliveryManService;
+import pe.edu.upc.pwspringahorraland.business.crud.ShippingService;
 import pe.edu.upc.pwspringahorraland.models.entity.DeliveryMan;
+import pe.edu.upc.pwspringahorraland.models.entity.Shipping;
 import pe.edu.upc.pwspringahorraland.utils.DeliveryManSearch;
 
 @Controller
 @RequestMapping("/deliveryman")
 public class DeliveryManController {
 	
-	@Autowired 
+	@Autowired
 	private DeliveryManService deliveryManService;
+	
+	@Autowired
+	private ShippingService shippingService;
 	
 	
 	@GetMapping
@@ -53,5 +58,41 @@ public class DeliveryManController {
 		model.addAttribute("deliveryManSearch", deliveryManSearch);
 		return "deliveryman/detail";
 	}
-		
+	
+	@GetMapping ("new")
+	public String newShipping(Model model) {
+		try {
+				List<DeliveryMan> deliveryMans = deliveryManService.getAll();	
+				model.addAttribute("deliveryMans",deliveryMans);
+				model.addAttribute("shipping", new Shipping());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "shipping/shipping";
+	}
+	
+	@RequestMapping("saveNew")
+	public String saveShipping(Model model, @ModelAttribute("shipping") Shipping shipping) {
+		System.out.println(shipping.getDirection());
+		try {
+			
+			Shipping shippingSaved = shippingService.create(shipping);
+			model.addAttribute("shipping", shippingSaved);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "shipping/view";
+	}
+	
+	@RequestMapping("map")
+	public String mapShipping(Model model) {
+		try {
+			List<DeliveryMan> deliveryMans = deliveryManService.getAll();
+			model.addAttribute("deliveryMans",deliveryMans);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return "shipping/status";
+	}
 }

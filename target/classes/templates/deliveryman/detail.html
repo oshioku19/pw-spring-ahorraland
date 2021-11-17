@@ -7,16 +7,24 @@
 <body>
 	<header th:replace="layout :: header"> </header>
 	
-
+<style>
+.cover-profile {
+background: #654ea3; 
+background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);  
+background: linear-gradient(to right, #eaafc8, #654ea3);
+	background-size: cover;
+	background-repeat: no-repeat
+}
+</style>
 	
 	<div class="row py-5 px-4">
     <div class="col-md-6 mx-auto">
         <!-- Profile widget -->
         <div class="bg-white shadow rounded overflow-hidden">
-            <div class="px-4 pt-0 pb-5 cover">
+            <div class="px-4 pt-0 pb-5 cover-profile">
                 <div class="media align-items-end profile-head">
-                    <div class="profile mr-3"><img src="images/deliveryman/dm1.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
-                    <div class="media-body mb-5 text-black">
+                    <div class="profile mr-3"><img th:src="@{'/images/deliveryman/dm'+${deliveryMan.id}+'.jpg'}" alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
+                    <div class="media-body mb-5 text-white">
                         <h4 class="mt-0 mb-0"  th:text="${deliveryMan.name}">Name</h4>
                         <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-10" style="margin-right: 5px"></i> La Perla, Callao</p>
                     </div>
@@ -25,7 +33,7 @@
             <div class="bg-light p-4 d-flex justify-content-end text-center">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block" th:text="${deliveryMan.rating}">Rating</h5><small class="text-muted"> <i class="fas fa-star mr-1" style="margin-right: 5px"></i>Calificación</small>
+                        <h5 class="font-weight-bold mb-0 d-block" th:text="${deliveryMan.rating}">Rating</h5><small class="text-muted"> <i class="fas fa-star mr-1" style="margin-right: 5px"></i>Calificacion</small>
                     </li>
                     <li class="list-inline-item">
                         <h5 class="font-weight-bold mb-0 d-block" th:text="${deliveryMan.sales}">Sales</h5><small class="text-muted" > <i class="fas fa-shopping-bag" style="margin-right: 5px"></i>Ventas</small>
@@ -33,7 +41,7 @@
                 </ul>
             </div>
             <div class="px-4 py-3">
-                <h5 class="mb-0">Información</h5>
+                <h5 class="mb-0">Informacion</h5>
                 <div class="p-4 rounded shadow-sm bg-light">
                     <p class="font-italic mb-0" th:text="${deliveryMan.bio}">Bio</p>
                 </div>
@@ -43,8 +51,8 @@
                     <h5 class="mb-0">Fotos de clientes satisfechos</h5>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 mb-2 pr-lg-1"><img src="images/profile/consumer1.jpg" class="img-fluid rounded shadow-sm" alt=""></img></div>
-                    <div class="col-lg-6 mb-2 pr-lg-1"><img src="images/profile/consumer2.jpg" class="img-fluid rounded shadow-sm" alt=""></img></div>
+                    <div class="col-lg-6 mb-2 pr-lg-1"><img th:src="@{'/images/profile/consumer1.jpg'}" class="img-fluid rounded shadow-sm" alt=""></img></div>
+                    <div class="col-lg-6 mb-2 pr-lg-1"><img th:src="@{'/images/profile/consumer2.jpg'}" class="img-fluid rounded shadow-sm" alt=""></img></div>
                 </div>
             </div>
         </div>
