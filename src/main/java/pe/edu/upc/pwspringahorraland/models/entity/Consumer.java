@@ -104,6 +104,8 @@ public class Consumer {
 	public void setSales(List<Sale> sales) {
 		this.sales = sales;
 	}
+
+	
     
 }
 

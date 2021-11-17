@@ -36,8 +36,10 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public List<Cart> findBySeller(Seller seller) throws Exception {
-		return cartRepository.findBySeller(seller);
+	public List<Cart> filterByCart(Integer id) {
+		return cartRepository.filterByCart(id);
 	}
+
+
 
 }

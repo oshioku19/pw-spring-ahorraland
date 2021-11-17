@@ -94,3 +94,9 @@ footer {
 	size: 35%;
 }
 
+a{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	
+}

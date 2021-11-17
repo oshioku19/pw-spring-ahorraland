@@ -27,44 +27,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr class="text-cart"th:each="cart : ${carts}">
 					<th scope="row"></th>
-					<td><button type="button" class="btn btn-danger">
+					<td><a th:href="${'/products/cart/' + cart.product.id + '/del'}" type="button" class="btn btn-danger">
 							<i class="fas fa-trash"></i>
-						</button></td>
-					<td><img src="images/products/fideos.jpg" width="120" height="auto"></td>
-					<td><h6 class="text-cart">Fideo Don Vitorio</h6></td>
-					<td><div class="product-quantity">
-							<input type="number" value="1" min="1">
+						</a></td>
+					<td><img th:src="${'/images/products/products' + cart.product.id + '.jpg'}" width="120" height="auto"></td>
+					<td><h6  th:text="${cart.product.name}"class="text-cart"></h6></td>
+					<td><div class="product-quantity" th:each="cart: @{cart.quantity}">
+							<input type="number" value="1" min="1" >
 						</div></td>
-					<td><h6 class="text-cart">S/.2.50</h6></td>
+					<td><h6 th:text="${'S/.'+ cart.product.price+'.00'}"class="text-cart"></h6></td>
 				</tr>
 
-				<tr>
-					<th scope="row"></th>
-					<td><button type="button" class="btn btn-danger">
-							<i class="fas fa-trash"></i>
-						</button></td>
-					<td><img src="images/products/papas_lays.jpg" width="120" height="auto"></td>
-					<td><h6 class="text-cart">Lays Clasicas</h6></td>
-					<td><div class="product-quantity">
-							<input type="number" value="1" min="1">
-						</div></td>
-					<td><h6 class="text-cart">S/.2.50</h6></td>
-				</tr>
-				<tr>
-					<th scope="row"></th>
-					<td><button type="button" class="btn btn-danger">
-							<i class="fas fa-trash"></i>
-						</button></td>
-					<td><img src="images/products/lata_durazno.jpg" width="120"
-						height="auto"></td>
-					<td><h6 class="text-cart">Arica Duraznos</h6></td>
-					<td><div class="product-quantity">
-							<input type="number" value="1" min="1">
-						</div></td>
-					<td><h6 class="text-cart">S/.2.50</h6></td>
-				</tr>
 
 			</tbody>
 
@@ -72,7 +47,7 @@
 		<div>
 			<div class="checkout">
 				<div class="total">Sub-Total</div>
-				<div class="money">S/.6.18</div>
+				<div class="money" >S/.6.18</div>
 			</div>
 			<a href="#" class="btn btn-success">Continuar</a>
 		</div>

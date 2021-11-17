@@ -18,7 +18,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light"
 			style="background-color: #FFFFFF;">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/"><img src="images/LogoSolo.svg"
+				<a class="navbar-brand" th:href="@{/}"><img th:src="@{/images/LogoSolo.svg}"
 					width="214" height="62" class="d-inline-block align-text-top"></a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -31,7 +31,7 @@
 
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/">Inicio</a></li>
+							aria-current="page" th:href="@{/}">Inicio</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,14 +60,14 @@
 						</form>
 					</ul>
 
-					<a href="/deliveryman" class="btn btn-light mx-2"><i class="fas fa-truck"></i>
+					<a th:href="@{/deliveryman}" class="btn btn-light mx-2"><i class="fas fa-truck"></i>
 						Órdenes</a>
 					<div>
-						<a href="/cart" class="btn btn-light mx-2"><i
+						<a th:href="@{/products/cart}" class="btn btn-light mx-2"><i
 							class="fas fa-shopping-cart"></i> Carrito</a>
 					</div>
 					<div>
-						<a href="/profile" class="btn btn-light mx-2"><i
+						<a th:href="@{/profile}" class="btn btn-light mx-2"><i
 							class="fas fa-user mx-2"></i>Inicia Sesión</a>
 					</div>
 				</div>
@@ -79,7 +79,7 @@
 		<div class="container py-5">
 			<div class="row">
 				<div class="col-lg-4 mb-3">
-					<img src="images/Logochiki-end.png" class="img-margin"> <span
+					<img th:src="@{/images/Logochiki-end.png}" class="img-margin"> <span
 						class="fs-5"></span>
 					<ul class="list-unstyled small">
 						<li class="mb-2">Un aplicativo gratuito diseñado para darte
@@ -90,16 +90,16 @@
 				<div class="col-6 col-lg-2 offset-lg-1 mb-3">
 					<h5>Secciones</h5>
 					<ul class="list-unstyled">
-						<li class="link-light"><a href="/">Inicio</a></li>
+						<li class="link-light"><a th:href="@{/}">Inicio</a></li>
 					</ul>
 				</div>
 				<div class="col-6 col-lg-2 offset-lg-1 mb-3">
 					<h5>Redes Sociales</h5>
 					<ul class="list-unstyled">
-						<li class="mb-2"><img src="images/fb.png"> AhorraLand
+						<li class="mb-2"><img th:src="@{/images/fb.png}"> AhorraLand
 							S.A.</li>
-						<li class="mb-2"><img src="images/ig.png"> @Ahorraland</li>
-						<li class="mb-2"><img src="images/wsp.png"> +51 959 078
+						<li class="mb-2"><img th:src="@{/images/ig.png}"> @Ahorraland</li>
+						<li class="mb-2"><img th:src="@{/images/wsp.png}"> +51 959 078
 							554</li>
 
 					</ul>
