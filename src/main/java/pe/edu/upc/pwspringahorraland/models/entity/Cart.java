@@ -18,15 +18,15 @@ indexes= {@Index(columnList="CSale", name="Cart_index_CSale"),
 		})
 @IdClass(value = CartId.class)
 public class Cart {
-
+	
 	@Id
 	@ManyToOne (fetch = FetchType.EAGER)
-	@JoinColumn(name="CSale",nullable =false)
+	@JoinColumn(name="CSale",nullable =true)
 	private Sale sale;
 	
 	@Id
 	@ManyToOne (fetch = FetchType.EAGER)
-	@JoinColumn(name="CProduct",columnDefinition="NUMERIC(4)")
+	@JoinColumn(name="CProduct",columnDefinition="NUMERIC(4)",nullable =true)
 	private Product product;
 	
 	

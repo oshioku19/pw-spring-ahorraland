@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.upc.pwspringahorraland.business.crud.CartService;
 import pe.edu.upc.pwspringahorraland.models.entity.Cart;
@@ -39,6 +40,14 @@ public class CartServiceImpl implements CartService {
 	public List<Cart> filterByCart(Integer id) {
 		return cartRepository.filterByCart(id);
 	}
+
+	@Transactional
+	@Override
+	public void deleteBySaleIdAndProductId(int idSale, int idProduct) {
+		cartRepository.deleteBySaleIdAndProductId(1, idProduct);		
+	}
+
+	
 
 
 

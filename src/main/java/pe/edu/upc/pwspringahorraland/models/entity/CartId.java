@@ -3,11 +3,16 @@ package pe.edu.upc.pwspringahorraland.models.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.lang.Nullable;
+
 
 public class CartId implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	
 	private Integer sale;
+	
+	
 	private Integer product;
 	
 	public CartId() {

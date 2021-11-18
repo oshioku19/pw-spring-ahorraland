@@ -22,8 +22,8 @@ public class Sale {
 
 	@Id	
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "Sale_sale_id_seq")
-	@Column(name="CSale", columnDefinition = "NUMERIC(4)", nullable=false)
-	private int id;
+	@Column(name="CSale", nullable=false)
+	private Integer id;
 	
 	@Column(name="DSale")
 	@Temporal(TemporalType.DATE)
@@ -45,16 +45,26 @@ public class Sale {
 	private Consumer consumer;
 
 	// getter and setter
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 
 	public Date getSale() {
 		return sale;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 	public void setSale(Date sale) {

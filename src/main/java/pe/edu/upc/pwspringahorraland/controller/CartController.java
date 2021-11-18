@@ -19,7 +19,7 @@ import pe.edu.upc.pwspringahorraland.models.entity.Product;
 import pe.edu.upc.pwspringahorraland.models.entity.Sale;
 
 @Controller
-@RequestMapping("products/cart")
+@RequestMapping("/cart")
 @SessionAttributes("{cart}")
 public class CartController {
 	@Autowired
@@ -30,6 +30,7 @@ public class CartController {
 
 	@Autowired
 	private SaleService saleService;
+	
 
 	@GetMapping
 	public String cart(Model model) {
@@ -46,19 +47,13 @@ public class CartController {
 		return "Cart";
 	}
 
+	
 	@GetMapping("{id}/del")
 	public String delete(Model model, @PathVariable("id")Integer id) {
-		try {
-			if(productService.existsById(id)) {
-				productService.deleteById(id);
-			} else {
-			     return "redirect:/Cart";	
-			} 
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-	
-		return "redirect:/Cart";
+		cartService.deleteBySaleIdAndProductId(1, id);	
+		return "redirect:/cart";
 
 	}
+	
+	
 }

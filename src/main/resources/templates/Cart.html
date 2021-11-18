@@ -29,7 +29,7 @@
 			<tbody>
 				<tr class="text-cart"th:each="cart : ${carts}">
 					<th scope="row"></th>
-					<td><a th:href="${'/products/cart/' + cart.product.id + '/del'}" type="button" class="btn btn-danger">
+					<td><a th:href="${'/cart/' + cart.product.id + '/del'}" type="button" class="btn btn-danger">
 							<i class="fas fa-trash"></i>
 						</a></td>
 					<td><img th:src="${'/images/products/products' + cart.product.id + '.jpg'}" width="120" height="auto"></td>
@@ -37,7 +37,7 @@
 					<td><div class="product-quantity" th:each="cart: @{cart.quantity}">
 							<input type="number" value="1" min="1" >
 						</div></td>
-					<td><h6 th:text="${'S/.'+ cart.product.price+'.00'}"class="text-cart"></h6></td>
+					<td><h6 th:text="${'S/.'+ cart.product.price+'0'}"class="text-cart"></h6></td>
 				</tr>
 
 
