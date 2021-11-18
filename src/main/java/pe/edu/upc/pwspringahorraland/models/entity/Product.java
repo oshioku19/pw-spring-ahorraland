@@ -34,7 +34,7 @@ public class Product {
 	private String name;
 	
 	@Column(name="MPrice")
-	private int price;
+	private double price;
 	
 	@Column(name="DExpiration")
 	@Temporal(TemporalType.DATE)
@@ -68,11 +68,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
