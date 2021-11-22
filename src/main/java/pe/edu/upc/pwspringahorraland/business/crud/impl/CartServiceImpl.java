@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,7 +28,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public List<Cart> findBySale(Sale sale) throws Exception {
+	public List<Cart> findBySale(int sale) throws Exception {
 		return cartRepository.findBySale(sale);
 	}
 
@@ -46,6 +47,21 @@ public class CartServiceImpl implements CartService {
 	public void deleteBySaleIdAndProductId(int idSale, int idProduct) {
 		cartRepository.deleteBySaleIdAndProductId(1, idProduct);		
 	}
+
+	@Transactional
+	@Override
+	public void deleteCart() {
+		cartRepository.deleteCart();
+		
+	}
+
+	@Transactional
+	@Override
+	public double getProducts() {		
+		return cartRepository.getProducts();
+	}
+
+	
 
 	
 

@@ -31,12 +31,12 @@ public class Cart {
 	
 	
 	@NotNull
-	@Column(name="QProduct")
+	@Column(name="QProduct",nullable = true)
 	private int quantity;
 	
 	
-	@Column(name="MPartialPrice")
-	private int partialPrice;
+	@Column(name="MPartialPrice",nullable = true)
+	private double partialPrice;
 
 	
 	
@@ -75,14 +75,16 @@ public class Cart {
 	}
 
 
-	public int getPartialPrice() {
+	public double getPartialPrice() {
 		return partialPrice;
 	}
 
 
-	public void setPartialPrice(int partialPrice) {
+	public void setPartialPrice(double partialPrice) {
 		this.partialPrice = partialPrice;
 	}
+
+
 	
 	
 	

@@ -110,3 +110,11 @@ body {
 	justify-content: inherit;
 	background-color:#5E17EB;
 }
+
+.metodo{
+	margin-left: 10%;
+}
+
+.form-check-input{
+	color: #5E17EB;
+}

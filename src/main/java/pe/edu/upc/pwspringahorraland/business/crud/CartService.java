@@ -11,9 +11,11 @@ import pe.edu.upc.pwspringahorraland.models.entity.Product;
 import pe.edu.upc.pwspringahorraland.models.entity.Sale;
 
 public interface CartService extends CrudService<Cart, CartId> {
-	List<Cart> findBySale(Sale sale)throws Exception;
+	List<Cart> findBySale(int sale)throws Exception;
 	List<Cart> findByProduct(Product product)throws Exception;
 
+	public double getProducts();
     List<Cart>filterByCart(@Param("id")Integer id);	
     void deleteBySaleIdAndProductId(int idSale, int idProduct);
+    void deleteCart ();
 }

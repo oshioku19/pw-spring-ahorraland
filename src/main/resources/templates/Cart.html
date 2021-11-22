@@ -13,7 +13,7 @@
 	<div class="card" style="width: 50rem;">
 		<div class="card-body">
 			<h3 class="card-title">Carrito de compra</h3>
-			<h6 class=”Action”>Remover todo</h6>
+			<a style="color: #000000;" th:href="${'/cart'+ '/removeAll'}"class=”Action”>Remover todo</a>
 		</div>
 		<table class="table">
 			<thead>
@@ -44,12 +44,13 @@
 			</tbody>
 
 		</table>
-		<div>
+		<div th:value="${cart}">
 			<div class="checkout">
 				<div class="total">Sub-Total</div>
-				<div class="money" >S/.6.18</div>
+				<div class="money"  ><h6 ></h6></div>
+				
 			</div>
-			<a href="#" class="btn btn-success">Continuar</a>
+			<a th:href="${'/cart/'+cart.sale.id+'/sale'}" class="btn btn-success">Continuar</a>
 		</div>
 
 

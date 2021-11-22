@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+<title>Carrito-Ahorraland</title>
+</head>
+<body>
+	<header th:replace="layout :: header"></header>
+	<div class="progress">
+		<div class="progress-bar" role="progressbar" style="width: 50%;"
+			aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50 %</div>
+	</div>
+
+	<div class="card" style="width: 50rem;">
+		<div class="card-body">
+			<h3 class="card-title">Elige tu medio de pago</h3>
+		</div>
+		<form th:action="@{/cart/savesale}" th:objetc="${sale}" method="post" >
+
+			<fieldset class="metodo">
+				<legend class="col-form-label col-sm-10 pt-0">Metodos de
+					pago</legend>
+				<div class="col-sm-10" th:field="*{paymentTye}">
+					<div class="form-check"  th:each="paymentType : ${payments}">
+						<input class="form-check-input" type="radio" name="gridRadios"
+							id="gridRadios1" th:value="${paymentType.id}" checked> 
+							<label th:text="${paymentType.name}"
+							class="form-check-label" for="gridRadios1"> </label>
+					</div>
+				</div>
+			</fieldset>
+			<div class="metodo">
+				
+				<div class="col-sm-10">
+					<h6 style="margin-bottom: 20px;">Paga con Tarjeta</h6>
+					<input type="text" class="form-control" id="inputEmail3"
+						style="width: 400px;" placeholder="Numero de tarjeta">
+				</div>
+			</div>
+			<div class="metodo">
+				
+				<div>
+					<label for="inputPassword3" class="col-sm-5 col-form-label">Mes de Vencimiento</label>
+					<input type="date" class="form-control" id="inputEmail3"
+						style="width: 200px;">
+
+				</div>
+				
+				<div >
+					<label for="inputPassword3" class="col-sm-5 col-form-label">Anio de vencimiento</label>
+					<input type="date" class="form-control" id="inputEmail3"
+						style="width: 200px;">
+
+				</div>
+				
+				<div >
+					<label for="inputPassword3" class="col-sm-5 col-form-label"></label>
+					<input type="text" class="form-control" id="inputEmail3" placeholder="CVV"
+						style="width: 200px;">
+
+				</div>
+			</div>
+			<div>
+			<button type="submit" class="btn btn-success">Continuar</button>
+		</div>
+		</form>
+		
+
+
+	</div>
+	<footer th:replace="layout :: footer"> </footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

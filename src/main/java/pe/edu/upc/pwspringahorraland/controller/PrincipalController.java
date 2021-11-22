@@ -48,9 +48,7 @@ public class PrincipalController {
 			Cart objCart = new Cart();
 			Product objProduct = new Product();
 			Sale objtSale = new Sale();
-
 			objCart.setQuantity(1);
-			objCart.setPartialPrice(12);
 			objProduct.setId(id);
 			objCart.setProduct(objProduct);
 			objtSale.setId(1);

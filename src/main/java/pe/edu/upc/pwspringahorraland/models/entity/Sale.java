@@ -27,10 +27,10 @@ public class Sale {
 	
 	@Column(name="DSale")
 	@Temporal(TemporalType.DATE)
-	private Date sale;
+	private Date dsale;
 	
 	@Column(name="MTotal")
-	private int amount;
+	private double amount;
 	
 	@OneToOne
 	@JoinColumn(name="CShipping", nullable =false )
@@ -47,10 +47,7 @@ public class Sale {
 	// getter and setter
 	
 
-	public Date getSale() {
-		return sale;
-	}
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -58,25 +55,15 @@ public class Sale {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
 
-	public int getAmount() {
-		return amount;
+	
+	public Date getDsale() {
+		return dsale;
 	}
 
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-
-	public void setSale(Date sale) {
-		this.sale = sale;
-	}
-
-	public int getmTotal() {
-		return amount;
-	}
-
-	public void setmTotal(int amount) {
-		this.amount = amount;
+	public void setDsale(Date dsale) {
+		this.dsale = dsale;
 	}
 
 	public Shipping getShipping() {
@@ -101,6 +88,14 @@ public class Sale {
 
 	public void setConsumer(Consumer consumer) {
 		this.consumer = consumer;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 	
 
