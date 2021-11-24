@@ -26,8 +26,7 @@ public class Sale {
 	private Integer id;
 	
 	@Column(name="DSale")
-	@Temporal(TemporalType.DATE)
-	private Date dsale;
+	private String dsale;
 	
 	@Column(name="MTotal")
 	private double amount;
@@ -38,7 +37,7 @@ public class Sale {
 	
 	@ManyToOne
 	@JoinColumn(name="CPaymentType", nullable =false )
-	private PaymentType paymentTye;
+	private PaymentType paymentType;
 	
 	@ManyToOne
 	@JoinColumn(name="CConsumer", nullable =false )
@@ -58,11 +57,12 @@ public class Sale {
 	
 
 	
-	public Date getDsale() {
+	
+	public String getDsale() {
 		return dsale;
 	}
 
-	public void setDsale(Date dsale) {
+	public void setDsale(String dsale) {
 		this.dsale = dsale;
 	}
 
@@ -74,12 +74,14 @@ public class Sale {
 		this.shipping = shipping;
 	}
 
-	public PaymentType getPaymentTye() {
-		return paymentTye;
+	public PaymentType getPaymentType() {
+		return paymentType;
 	}
+	
+	
 
-	public void setPaymentTye(PaymentType paymentTye) {
-		this.paymentTye = paymentTye;
+	public void setPaymentType(PaymentType paymentType) {
+		this.paymentType = paymentType;
 	}
 
 	public Consumer getConsumer() {

@@ -26,7 +26,7 @@ public class Cart {
 	
 	@Id
 	@ManyToOne (fetch = FetchType.EAGER)
-	@JoinColumn(name="CProduct",columnDefinition="NUMERIC(4)",nullable =true)
+	@JoinColumn(name="CProduct",nullable =true)
 	private Product product;
 	
 	

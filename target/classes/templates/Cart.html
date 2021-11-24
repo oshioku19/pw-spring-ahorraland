@@ -44,13 +44,13 @@
 			</tbody>
 
 		</table>
-		<div th:value="${cart}">
+		<div th:each="sale : ${sales}">
 			<div class="checkout">
 				<div class="total">Sub-Total</div>
 				<div class="money"  ><h6 ></h6></div>
 				
 			</div>
-			<a th:href="${'/cart/'+cart.sale.id+'/sale'}" class="btn btn-success">Continuar</a>
+			<a th:href="@{'/cart/'+${sale.id}+'/sale'}" class="btn btn-success">Continuar</a>
 		</div>
 
 

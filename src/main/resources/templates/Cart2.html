@@ -11,25 +11,41 @@
 	</div>
 
 	<div class="card" style="width: 50rem;">
+	<img style="margin-left: 43%;margin-top: 3%;"th:src="@{/images/payment/payment3001.png}" width="90" height="auto" />
+	
 		<div class="card-body">
-			<h3 class="card-title">Elige tu medio de pago</h3>
+			<h3 style="margin-left: 26%;"class="card-title">Elige tu medio de pago</h3>
 		</div>
-		<form th:action="@{/cart/savesale}" th:objetc="${sale}" method="post" >
+		<form th:action="@{/cart/savesale}" th:object="${sale}" method="post">
 
-			<fieldset class="metodo">
-				<legend class="col-form-label col-sm-10 pt-0">Metodos de
-					pago</legend>
-				<div class="col-sm-10" th:field="*{paymentTye}">
-					<div class="form-check"  th:each="paymentType : ${payments}">
-						<input class="form-check-input" type="radio" name="gridRadios"
-							id="gridRadios1" th:value="${paymentType.id}" checked> 
-							<label th:text="${paymentType.name}"
-							class="form-check-label" for="gridRadios1"> </label>
-					</div>
-				</div>
-			</fieldset>
+			<div class="mb-3">
+				<input type="text" class="form-control" th:field="*{id}" , hidden="true">
+			</div>
+			<div class="mb-3">
+				<input type="text" data-date="" data-date-format="YYYY-MM-DD" class="form-control" th:field="*{dsale}" , hidden="true">
+			</div>
+			<div class="mb-3">
+				<input type="text" class="form-control" th:field="*{amount}", hidden="true">
+			</div>
+			<div class="mb-3">
+				<input type="text" class="form-control" th:field="*{shipping}", hidden="true">
+			</div>
+			<div class="mb-3">
+				<input type="text" class="form-control" th:field="*{consumer}", hidden="true">
+			</div>
+			<div class="mb-3" style="margin-left: 10%;">
+				<label for="paymentType " class="col-form-label col-sm-10 pt-0">Metodos
+					de pago</label>
+			</div>
+			<div class="col-sm-10" style="margin-left: 10%; margin-bottom: 20px;">
+				<select class="form-select" th:field="*{paymentType}">
+					<option th:each="paymentType : ${paymentTypes}"
+						th:value="${paymentType.id}" th:text="${paymentType.name}">One</option>
+				</select>
+			</div>
+
 			<div class="metodo">
-				
+
 				<div class="col-sm-10">
 					<h6 style="margin-bottom: 20px;">Paga con Tarjeta</h6>
 					<input type="text" class="form-control" id="inputEmail3"
@@ -37,33 +53,33 @@
 				</div>
 			</div>
 			<div class="metodo">
-				
+
 				<div>
-					<label for="inputPassword3" class="col-sm-5 col-form-label">Mes de Vencimiento</label>
-					<input type="date" class="form-control" id="inputEmail3"
-						style="width: 200px;">
+					<label for="inputPassword3" class="col-sm-5 col-form-label">Mes
+						de Vencimiento</label> <input type="date" class="form-control"
+						id="inputEmail3" style="width: 200px;">
 
 				</div>
-				
-				<div >
-					<label for="inputPassword3" class="col-sm-5 col-form-label">Anio de vencimiento</label>
-					<input type="date" class="form-control" id="inputEmail3"
-						style="width: 200px;">
+
+				<div>
+					<label for="inputPassword3" class="col-sm-5 col-form-label">Anio
+						de vencimiento</label> <input type="date" class="form-control"
+						id="inputEmail3" style="width: 200px;">
 
 				</div>
-				
-				<div >
+
+				<div>
 					<label for="inputPassword3" class="col-sm-5 col-form-label"></label>
-					<input type="text" class="form-control" id="inputEmail3" placeholder="CVV"
-						style="width: 200px;">
+					<input type="text" class="form-control" id="inputEmail3"
+						placeholder="CVV" style="width: 200px;">
 
 				</div>
 			</div>
 			<div>
-			<button type="submit" class="btn btn-success">Continuar</button>
-		</div>
+				<button type="submit" class="btn btn-success">Continuar</button>
+			</div>
 		</form>
-		
+
 
 
 	</div>
