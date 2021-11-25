@@ -21,76 +21,77 @@ import javax.persistence.TemporalType;
 @SequenceGenerator(name = "Product_product_id_seq", initialValue = 1, allocationSize = 1)
 public class Product {
 
-	@Id	
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "Product_product_id_seq")
-	@Column(name="CProduct",columnDefinition ="NUMERIC(4)")
-	private Integer id;
-	
-	@ManyToOne
-	@JoinColumn(name="CSeller",nullable = false)
-	private Seller seller;
-	
-	@Column(name="NProduct", length= 50, nullable=false)
-	private String name;
-	
-	@Column(name="MPrice")
-	private double price;
-	
-	@Column(name="DExpiration")
-	@Temporal(TemporalType.DATE)
-	private Date expiration;
-	
-	@ManyToOne
-	@JoinColumn(name="DCategory",nullable = false)
-	private Category category;
+	@Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "Product_product_id_seq")
+    @Column(name="CProduct")
+    private Integer id;
 
-	public Integer getId() {
-		return id;
-	}
+    @ManyToOne
+    @JoinColumn(name="CSeller",nullable = false)
+    private Seller seller;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    @Column(name="NProduct", length= 50, nullable=false)
+    private String name;
 
-	public Seller getSeller() {
-		return seller;
-	}
+    @Column(name="MPrice")
+    private double price;
 
-	public void setSeller(Seller seller) {
-		this.seller = seller;
-	}
+    @Column(name="DExpiration")
+    @Temporal(TemporalType.DATE)
+    private Date expiration;
 
-	public String getName() {
-		return name;
-	}
+    @ManyToOne
+    @JoinColumn(name="DCategory",nullable = false)
+    private Category category;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public double getPrice() {
-		return price;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    public Seller getSeller() {
+        return seller;
+    }
 
-	public Date getExpiration() {
-		return expiration;
-	}
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
 
-	public void setExpiration(Date expiration) {
-		this.expiration = expiration;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Category getCategory() {
-		return category;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-	
-	
+
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Date getExpiration() {
+        return expiration;
+    }
+
+    public void setExpiration(Date expiration) {
+        this.expiration = expiration;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
 }

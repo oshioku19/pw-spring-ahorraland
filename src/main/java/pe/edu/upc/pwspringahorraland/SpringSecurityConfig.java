@@ -25,8 +25,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 				.antMatchers("/", "/css/**", "/js/**", "/images/**", "/login/**",
-						"/users/new", "/users/list", "/home" ,"/user/save", "/login/new", "/login/save")
-				.permitAll().anyRequest().authenticated().and().formLogin().permitAll().loginPage("/login").permitAll()
+						"/iniciar","/users/new", "/users/list", "/home" ,"/user/save", "/login/saveseller","/login/saveconsumer","/elegir", "/login/newseller","/login/newconsumer")
+				.permitAll().anyRequest().authenticated().and().formLogin().permitAll().loginPage("/login").loginProcessingUrl("/login")
+				.defaultSuccessUrl("/home").permitAll()
 				.and().logout().permitAll().and().exceptionHandling().accessDeniedPage("/error");
 	}
 

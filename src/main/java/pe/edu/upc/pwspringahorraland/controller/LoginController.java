@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.pwspringahorraland.business.crud.ConsumerService;
+import pe.edu.upc.pwspringahorraland.business.crud.SellerService;
 import pe.edu.upc.pwspringahorraland.business.crud.UserService;
 import pe.edu.upc.pwspringahorraland.models.entity.Consumer;
 import pe.edu.upc.pwspringahorraland.models.entity.Seller;
@@ -32,7 +33,7 @@ public class LoginController {
 	private BCryptPasswordEncoder passwordEncoder;
 	
 	@Autowired
-	private UserService userService;
+	private SellerService sellerService;
 	
 	@Autowired
 	private ConsumerService consumerService;
@@ -66,38 +67,28 @@ public class LoginController {
 		return "RegistroConsumer";
 	}
 	
-	@PostMapping("/login/save")
-	public String saveUser(@ModelAttribute("users") @Valid Users user, BindingResult result, Model model)
-			throws Exception {
-		if (result.hasErrors()) {
-			return "usuarios/user";
-		} else {
-			String bcryptPassword = passwordEncoder.encode(user.getPassword());
-			user.setPassword(bcryptPassword);
-			int rpta = userService.insert_seller(user);
-			if (rpta > 0) {
-				model.addAttribute("mensaje", "Ya existe");
-				model.addAttribute("newUser", new Users());
-				return "RegistroSeller";
-			} else {
-				model.addAttribute("mensaje", "Se guardó correctamente");
-			}
-		}
-		return "redirect:/seller/new";
-	}
+	
 	
 	@GetMapping("/login/newconsumer")
-	public String newUserFreelancer(Model model) {
+	public String newUserConsumer(Model model) {
 		model.addAttribute("usuario", new Users());
-		model.addAttribute("newConsumidor", new Consumer());
+		model.addAttribute("userconsumer", new Consumer());
 		return "RegistroConsumer";
 	}
 	
+	@GetMapping("/login/newseller")
+	public String newUserSeller(Model model) {
+		model.addAttribute("usuario", new Users());
+		model.addAttribute("userseller", new Seller());
+		return "RegistroSeller";
+	}
+	
+	
 	@PostMapping("/login/saveconsumer")
-	public String saveUserFreelancer(@ModelAttribute("userconsumer") @Valid Consumer consumer, BindingResult result, Model model)
+	public String saveUserConsumer(@ModelAttribute("userconsumer") @Valid Consumer consumer, BindingResult result, Model model)
 			throws Exception {
 		if (result.hasErrors()) {
-			return "usuarios/user";
+			return "/RegistroConsumer";
 		} else {
 			String bcryptPassword = passwordEncoder.encode(consumer.getUsers().getPassword());
 			consumer.getUsers().setPassword(bcryptPassword);
@@ -105,13 +96,36 @@ public class LoginController {
 			if (rpta > 0) {
 				model.addAttribute("mensaje", "Ya existe");
 				model.addAttribute("userconsumer", new Consumer());
-				return "RegistroConsumer";
+				return "/RegistroConsumer";
 			} else {
 				model.addAttribute("mensaje", "Se guardó correctamente");
 			}
 		}
 		return "redirect:/login";
 	}
+	
+	@PostMapping("/login/saveseller")
+	public String saveUserSeller(@ModelAttribute("userseller") @Valid Seller seller, BindingResult result, Model model)
+			throws Exception {
+		if (result.hasErrors()) {
+			return "/RegistroSeller";
+		} else {
+			String bcryptPassword = passwordEncoder.encode(seller.getUsers().getPassword());
+			seller.getUsers().setPassword(bcryptPassword);
+			int rpta = sellerService.insert(seller);
+			if (rpta > 0) {
+				model.addAttribute("mensaje", "Ya existe");
+				model.addAttribute("userseller", new Seller());
+				return "RegistroSeller";
+			} else {
+				model.addAttribute("mensaje", "Se guardó correctamente");
+			}
+		}
+		return "redirect:/login";
+	}
+	
+	
+	
 	
 }
 

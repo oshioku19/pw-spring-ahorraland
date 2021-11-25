@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vendedor</title>
+
+<!--Bootstrap.min css-->
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/bootstrap/css/bootstrap.min.css}">
+
+
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/fontawesome.min.css}" rel="stylesheet">
+<link th:href="@{/css/solid.min.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link th:href="@{/css/style-card.css}" rel="stylesheet">
+<link th:href="@{/css/styleDeliveryMan.css}" rel="stylesheet">
+
+<!-- Dashboard css -->
+<link th:href="@{/assets/css/style.css}" rel="stylesheet" />
+<!-- Custom scroll bar css-->
+<link
+	th:href="@{/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css}"
+	rel="stylesheet" />
+
+<!-- Sidemenu css -->
+<link th:href="@{/assets/plugins/toggle-sidebar/full-sidemenu-dark.css}"
+	rel="stylesheet" />
+
+<!--Daterangepicker css-->
+<link
+	th:href="@{/assets/plugins/bootstrap-daterangepicker/daterangepicker.css}"
+	rel="stylesheet" />
+
+<!-- Rightsidebar css -->
+<link th:href="@{/assets/plugins/sidebar/sidebar.css}" rel="stylesheet">
+
+<!-- Sidebar Accordions css -->
+<link
+	th:href="@{/assets/plugins/accordion1/css/easy-responsive-tabs.css}"
+	rel="stylesheet">
+
+<!-- Owl Theme css-->
+<link th:href="@{/assets/plugins/owl-carousel/owl.carousel.css}"
+	rel="stylesheet">
+
+<!-- Morris  Charts css-->
+<link th:href="@{/assets/plugins/morris/morris.css}" rel="stylesheet" />
+
+<!-- File Uploads css-->
+<link th:href="@{/assets/plugins/fileuploads/css/dropify.css}"
+	rel="stylesheet" type="text/css" />
+
+<!--Daterangepicker css-->
+<link
+	th:href="@{/assets/plugins/bootstrap-daterangepicker/daterangepicker.css}"
+	rel="stylesheet" />
+
+<!-- Time picker css-->
+<link th:href="@{/assets/plugins/time-picker/jquery.timepicker.css}"
+	rel="stylesheet" />
+
+<!-- Date Picker css-->
+<link th:href="@{/assets/plugins/date-picker/spectrum.css}"
+	rel="stylesheet" />
+
+<!---Font icons css-->
+<link th:href="@{/assets/plugins/iconfonts/plugin.css}" rel="stylesheet" />
+<link th:href="@{/assets/plugins/iconfonts/icons.css}" rel="stylesheet" />
+<link th:href="@{/assets/fonts/fonts/font-awesome.min.css}"
+	rel="stylesheet">
+
+<!-- Notifications  css -->
+<link th:href="@{/assets/plugins/notify/css/jquery.growl.css}"
+	rel="stylesheet" />
+<link th:href="@{/assets/plugins/notify/css/notifIt.css}"
+	rel="stylesheet" />
+
+<!-- Rating css-->
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/css/examples.css}">
+
+<!-- RatingThemes css-->
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/dist/themes/bars-1to10.css}">
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/dist/themes/bars-movie.css}">
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/dist/themes/bars-square.css}">
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/dist/themes/bars-pill.css}">
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/dist/themes/bars-reversed.css}">
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/dist/themes/bars-horizontal.css}">
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/dist/themes/fontawesome-stars.css}">
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/dist/themes/css-stars.css}">
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/dist/themes/bootstrap-stars.css}">
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/dist/themes/fontawesome-stars-o.css}">
+</head>
+<body>
+	<header th:replace="layout :: header"></header>
+
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header card-title">
+					<h4 style="margin-top: 13px;">FREQUENT DOUBTS / HELP</h4>
+				</div>
+				<div class="card-body">
+					<div class="acc-1 js-accordion">
+						<div class="accordion__item js-accordion-item active">
+							<div class="accordion-header js-accordion-header">1.
+								¿COMO INGRESO A MI CUENTA?</div>
+							<div class="accordion-body js-accordion-body">
+								<div class="accordion-body__contents">But I must explain
+									to you how all this mistaken idea of denouncing pleasure and
+									praising pain was born and I will give you a complete account
+									of the system, and expound the actual teachings of the great
+									explorer of the truth, the master-builder of human happiness.
+									No one rejects, dislikes, or avoids pleasure itself, because it
+									is pleasure, but because those who do not know how to pursue
+									pleasure rationally encounter consequences that are extremely
+									painful. Nor again is there anyone who loves or pursues or
+									desires to obtain pain of itself, because it is pain, but
+									because occasionally circumstances occur in which toil and pain
+									can procure him some great pleasure.</div>
+							</div>
+						</div>
+						<div class="accordion__item js-accordion-item">
+							<div class="accordion-header js-accordion-header">2. Duda</div>
+							<div class="accordion-body js-accordion-body">
+								<div class="accordion-body__contents">These cases are
+									perfectly simple and easy to distinguish. In a free hour, when
+									our power of choice is untrammelled and when nothing prevents
+									our being able to do what we like best, every pleasure is to be
+									welcomed and every pain avoided. But in certain circumstances
+									and owing to the claims of duty or the obligations of business
+									it will frequently occur that pleasures have to be repudiated
+									and annoyances accepted. The wise man therefore always holds in
+									these matters to this principle of selection: he rejects
+									pleasures to secure other greater pleasures, or else he endures
+									pains to avoid worse pains</div>
+							</div>
+						</div>
+						<div class="accordion__item js-accordion-item">
+							<div class="accordion-header js-accordion-header">3. XXXXXX</div>
+							<div class="accordion-body js-accordion-body">
+								<div class="accordion-body__contents">But I must explain
+									to you how all this mistaken idea of denouncing pleasure and
+									praising pain was born and I will give you a complete account
+									of the system, and expound the actual teachings of the great
+									explorer of the truth, the master-builder of human happiness.
+									No one rejects, dislikes, or avoids pleasure itself, because it
+									is pleasure, but because those who do not know how to pursue
+									pleasure rationally encounter consequences that are extremely
+									painful. Nor again is there anyone who loves or pursues or
+									desires to obtain pain of itself, because it is pain, but
+									because occasionally circumstances occur in which toil and pain
+									can procure him some great pleasure.</div>
+								<div class="accordion js-accordion">
+									<div class="accordion__item js-accordion-item">
+										<div class="accordion-header js-accordion-header">At
+											vero eos et accusamus et iusto odio dignissimos?</div>
+										<div class="accordion-body js-accordion-body">
+											<div class="accordion-body__contents">Lorem ipsum dolor
+												sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+												incididunt ut labore et dolore magna aliqua. Ut enim ad
+												minim veniam, quis nostrud exercitation ullamco laboris nisi
+												ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+												reprehenderit in voluptate velit esse cillum dolore eu
+												fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+												proident, sunt in culpa qui officia deserunt mollit anim id
+												est laborum.</div>
+										</div>
+									</div>
+									<div class="accordion__item js-accordion-item">
+										<div class="accordion-header js-accordion-header">Nam
+											libero tempore, cum soluta nobis est eligendi?</div>
+										<div class="accordion-body js-accordion-body">
+											<div class="accordion-body__contents">Lorem ipsum dolor
+												sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+												incididunt ut labore et dolore magna aliqua. Ut enim ad
+												minim veniam, quis nostrud exercitation ullamco laboris nisi
+												ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+												reprehenderit in voluptate velit esse cillum dolore eu
+												fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+												proident, sunt in culpa qui officia deserunt mollit anim id
+												est laborum.</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="accordion__item js-accordion-item">
+							<div class="accordion-header js-accordion-header">4. XXXXXX</div>
+							<div class="accordion-body js-accordion-body">
+								<div class="accordion-body__contents">On the other hand,
+									we denounce with righteous indignation and dislike men who are
+									so beguiled and demoralized by the charms of pleasure of the
+									moment, so blinded by desire, that they cannot foresee the pain
+									and trouble that are bound to ensue; and equal blame belongs to
+									those who fail in their duty through weakness of will, which is
+									the same as saying through shrinking from toil and pain.</div>
+							</div>
+						</div>
+						<div class="accordion__item js-accordion-item">
+							<div class="accordion-header js-accordion-header">5. XXXXX</div>
+							<div class="accordion-body js-accordion-body">
+								<div class="accordion-body__contents">Sed ut perspiciatis
+									unde omnis iste natus error sit voluptatem accusantium
+									doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+									illo inventore veritatis et quasi architecto beatae vitae dicta
+									sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+									aspernatur aut odit aut fugit, sed quia consequuntur magni
+									dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
+									quisquam est, qui dolorem ipsum quia dolor sit amet,
+									consectetur, adipisci velit, sed quia non numquam eius modi
+									tempora incidunt ut labore et dolore magnam aliquam quaerat
+									voluptatem.</div>
+							</div>
+						</div>
+						<div class="accordion__item js-accordion-item">
+							<div class="accordion-header js-accordion-header">6. XXXXX</div>
+							<div class="accordion-body js-accordion-body">
+								<div class="accordion-body__contents">Nam libero tempore,
+									cum soluta nobis est eligendi optio cumque nihil impedit quo
+									minus id quod maxime placeat facere possimus, omnis voluptas
+									assumenda est, omnis dolor repellendus. Temporibus autem
+									quibusdam et aut officiis debitis aut rerum necessitatibus
+									saepe eveniet ut et voluptates repudiandae sint et molestiae
+									non recusandae. Itaque earum rerum hic tenetur a sapiente
+									delectus, ut aut reiciendis voluptatibus maiores alias
+									consequatur aut perferendis doloribus asperiores repellat.</div>
+							</div>
+						</div>
+						<div class="accordion__item js-accordion-item">
+							<div class="accordion-header js-accordion-header">7. XXXX</div>
+							<div class="accordion-body js-accordion-body">
+								<div class="accordion-body__contents">There are many
+									variations of passages of Lorem Ipsum available, but the
+									majority have suffered alteration in some form, by injected
+									humour, or randomised words which don't look even slightly
+									believable. If you are going to use a passage of Lorem Ipsum,
+									you need to be sure there isn't anything embarrassing hidden in
+									the middle of text. All the Lorem Ipsum generators on the
+									Internet tend to repeat predefined chunks as necessary, making
+									this the first true generator on the Internet.</div>
+							</div>
+						</div>
+						<div class="accordion__item js-accordion-item">
+							<div class="accordion-header js-accordion-header">8. XXXXX</div>
+							<div class="accordion-body js-accordion-body">
+								<div class="accordion-body__contents">It is a long
+									established fact that a reader will be distracted by the
+									readable content of a page when looking at its layout. The
+									point of using Lorem Ipsum is that it has a more-or-less normal
+									distribution of letters, as opposed to using 'Content here,
+									content here', making it look like readable English. Many
+									desktop publishing packages and web page editors now use Lorem
+									Ipsum as their default model text, and a search for 'lorem
+									ipsum' will uncover many web sites still in their infancy.
+									Various versions have evolved over the years, sometimes by
+									accident, sometimes on purpose (injected humour and the like).
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer">
+					<a class="btn btn-secondary mt-2 mb-2" th:href="@{/seller}">Volver</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- row end -->
+
+	<footer th:replace="layout :: footer"> </footer>
+
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<!-- Jquery js-->
+	<script th:src="@{/assets/js/vendors/jquery-3.2.1.min.js}"></script>
+
+	<!--Bootstrap.min js-->
+	<script th:src="@{/assets/plugins/bootstrap/popper.min.js}"></script>
+	<script th:src="@{/assets/plugins/bootstrap/js/bootstrap.min.js}"></script>
+
+	<!--Jquery Sparkline js-->
+	<script th:src="@{/assets/js/vendors/jquery.sparkline.min.js}"></script>
+
+	<!-- Chart Circle js-->
+	<script th:src="@{/assets/js/vendors/circle-progress.min.js}"></script>
+
+	<!-- Star Rating js-->
+	<script th:src="@{/assets/plugins/rating/jquery.rating-stars.js}"></script>
+
+	<!--Moment js-->
+	<script th:src="@{/assets/plugins/moment/moment.min.js}"></script>
+
+	<!-- Daterangepicker js-->
+	<script
+		th:src="@{/assets/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+
+	<!--Side-menu js-->
+	<script th:src="@{/assets/plugins/toggle-sidebar/sidemenu.js}"></script>
+
+	<!-- Sidebar Accordions js -->
+	<script th:src="@{/assets/plugins/accordion1/js/easyResponsiveTabs.js}"></script>
+
+	<!-- Custom scroll bar js-->
+	<script
+		th:src="@{/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js}"></script>
+
+	<!--Owl Carousel js -->
+	<script th:src="@{/assets/plugins/owl-carousel/owl.carousel.js}"></script>
+	<script th:src="@{/assets/plugins/owl-carousel/owl-main.js}"></script>
+
+	<!-- Rightsidebar js -->
+	<script th:src="@{/assets/plugins/sidebar/sidebar.js}"></script>
+
+	<!-- Charts js-->
+	<script th:src="@{/assets/plugins/chart/chart.bundle.js}"></script>
+	<script th:src="@{/assets/plugins/chart/utils.js}"></script>
+
+	<!--Time Counter js-->
+	<script
+		th:src="@{/assets/plugins/counters/jquery.missofis-countdown.js}"></script>
+	<script th:src="@{/assets/plugins/counters/counter.js}"></script>
+
+	<!--Morris  Charts js-->
+	<script th:src="@{/assets/plugins/morris/raphael-min.js}"></script>
+	<script th:src="@{/assets/plugins/morris/morris.js}"></script>
+
+	<!-- Custom-charts js-->
+	<script th:src="@{/assets/js/index1.js}"></script>
+
+	<!--Rating js-->
+	<script th:src="@{/assets/plugins/rating/jquery.rating-stars.js}"></script>
+	<script th:src="@{/assets/plugins/rating/jquery.barrating.js}"></script>
+	<script th:src="@{/assets/plugins/rating/js/examples.js}"></script>
+
+	<!-- Accordion js-->
+	<script th:src="@{/assets/js/accordiation.js}"></script>
+
+
+	<!-- Custom js-->
+	<script th:src="@{/assets/js/custom.js}"></script>
+</body>
+</html>

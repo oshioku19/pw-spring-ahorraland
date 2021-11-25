@@ -20,8 +20,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name = "Sellers", indexes = { @Index(columnList = "NSeller", name = "Seller_index_NSeller"),
-		@Index(columnList = "NLastname", name = "Seller_index_NLastname") })
+@Table(name = "Sellers")
 @SequenceGenerator(name = "Seller_seller_id_seq", initialValue = 1, allocationSize = 1)
 public class Seller {
 
@@ -50,7 +49,7 @@ public class Seller {
 
 	public Seller() {
 		super();
-		// TODO Auto-generated constructor stub
+		product=new ArrayList<Product>();
 	}
 
 	public Integer getId() {

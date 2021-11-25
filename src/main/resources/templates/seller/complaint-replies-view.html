@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout :: head">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vendedor</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--Bootstrap.min css-->
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/bootstrap/css/bootstrap.min.css}">
+
+
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/fontawesome.min.css}" rel="stylesheet">
+<link th:href="@{/css/solid.min.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link th:href="@{/css/style-card.css}" rel="stylesheet">
+<link th:href="@{/css/styleDeliveryMan.css}" rel="stylesheet">
+
+<!-- Dashboard css -->
+<link th:href="@{/assets/css/style.css}" rel="stylesheet" />
 <!-- Custom scroll bar css-->
 <link
 	th:href="@{/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css}"
@@ -68,71 +81,62 @@
 <link rel="stylesheet"
 	th:href="@{/assets/plugins/rating/css/examples.css}">
 
-<!-- RatingThemes css-->
-<link rel="stylesheet"
-	th:href="@{/assets/plugins/rating/dist/themes/bars-1to10.css}">
-<link rel="stylesheet"
-	th:href="@{/assets/plugins/rating/dist/themes/bars-movie.css}">
-<link rel="stylesheet"
-	th:href="@{/assets/plugins/rating/dist/themes/bars-square.css}">
-<link rel="stylesheet"
-	th:href="@{/assets/plugins/rating/dist/themes/bars-pill.css}">
-<link rel="stylesheet"
-	th:href="@{/assets/plugins/rating/dist/themes/bars-reversed.css}">
-<link rel="stylesheet"
-	th:href="@{/assets/plugins/rating/dist/themes/bars-horizontal.css}">
-<link rel="stylesheet"
-	th:href="@{/assets/plugins/rating/dist/themes/fontawesome-stars.css}">
-<link rel="stylesheet"
-	th:href="@{/assets/plugins/rating/dist/themes/css-stars.css}">
-<link rel="stylesheet"
-	th:href="@{/assets/plugins/rating/dist/themes/bootstrap-stars.css}">
-<link rel="stylesheet"
-	th:href="@{/assets/plugins/rating/dist/themes/fontawesome-stars-o.css}">
+<!-- Data table css -->
+<link
+	th:href="@{assets/plugins/datatable/dataTables.bootstrap4.min.css}"
+	rel="stylesheet" />
+<link th:href="@{assets/plugins/datatable/responsivebootstrap4.min.css}"
+	rel="stylesheet" />
+
 </head>
 <body>
 	<header th:replace="layout :: header"></header>
 
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="mb-0 card-title">View Complaint</h3>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-8">
+							<dl class="product-gallery-data1">
+								<dt>Reason</dt>
+								<dd th:text="${complaint.complaintReason}"></dd>
+							</dl>
+							<dl class="product-gallery-data1">
+								<dt>Details</dt>
+								<dd th:text="${complaint.complaintContent}"></dd>
+							</dl>
+							<dl class="product-gallery-data1">
+								<dt>Response</dt>
+								<dd th:text="${complaint.complaintResponse}"></dd>
+							</dl>
+							<dl class="product-gallery-data1">
+								<dt>Status</dt>
+								<dd th:text="${complaint.status.name}"></dd>
+							</dl>
 
-	<div class="card" style="width: 50rem;">
-		<div class="card-body">
-			<h3 class="card-title">Bienvenido xxxx</h3>
 
-		</div>
-		<table class="table">
+						</div>
+						
+						<div class="col-md-12 ">
+							<div class="card-footer text-right">
+								<a th:href="@{'/seller/' + ${complaint.seller.id} + '/complaint-replies'}"><button class="btn btn-success">Accept</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-			<tbody>
-
-
-				<tr>
-					<th scope="row"></th>
-
-					<td><img src="images/deliveryman/chamo.jpg" width="120"
-						height="auto"></td>
-
-				</tr>
-
-			</tbody>
-
-		</table>
-
-		<div class="general-div">
-			<a th:href="@{'/seller/' + 1 + '/paymentTypes/'}" class="btn btn-primary">Métodos de Pago</a> <a
-				th:href="@{/seller/invoice}" class="btn btn-primary">Boleta/Factura
-				de pagos de Venta</a> <a th:href="@{/seller/orders-shipped}"
-				class="btn btn-primary">Ver Lista de Ordenes Enviadas</a>
-
-		</div>
-		<div class="general-div">
-			<a th:href="@{'/seller/' + 1 + '/complaint-replies/'}" class="btn btn-primary">Ver Respuestas de
-				Reclamaciones </a> <a th:href="@{/seller/sales-graph}" class="btn btn-primary">Ver
-				Estdísticas de Ventas</a> <a th:href="@{/seller/help}"
-				class="btn btn-primary">Ayuda</a>
+			</div>
 		</div>
 
 	</div>
 
+
 	<footer th:replace="layout :: footer"> </footer>
+
 	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 	<!-- Jquery js-->
 	<script th:src="@{/assets/js/vendors/jquery-3.2.1.min.js}"></script>
@@ -195,6 +199,17 @@
 	<script th:src="@{/assets/plugins/rating/jquery.barrating.js}"></script>
 	<script th:src="@{/assets/plugins/rating/js/examples.js}"></script>
 
+	<!-- Accordion js-->
+	<script th:src="@{/assets/js/accordiation.js}"></script>
+
+	<!-- Data tables js-->
+	<script th:src="@{/assets/plugins/datatable/jquery.dataTables.min.js}"></script>
+	<script
+		th:src="@{/assets/plugins/datatable/dataTables.bootstrap4.min.js}"></script>
+	<script th:src="@{/assets/plugins/datatable/datatable.js}"></script>
+	<script th:src="@{/assets/plugins/datatable/datatable-2.js}"></script>
+	<script
+		th:src="@{/assets/plugins/datatable/dataTables.responsive.min.js}"></script>
 
 
 	<!-- Custom js-->

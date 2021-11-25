@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
 <head th:replace="layout :: head">
 <title>Carrito-Ahorraland</title>
 </head>
@@ -13,7 +14,7 @@
 	<div class="card" style="width: 50rem;">
 		<div class="card-body">
 			<h3 class="card-title">Carrito de compra</h3>
-			<h6 class=”Action”>Remover todo</h6>
+			<a style="color: #000000;" th:href="${'/cart'+ '/removeAll'}"class=ï¿½Actionï¿½>Remover todo</a>
 		</div>
 		<table class="table">
 			<thead>
@@ -27,54 +28,30 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr class="text-cart"th:each="cart : ${carts}">
 					<th scope="row"></th>
-					<td><button type="button" class="btn btn-danger">
+					<td><a th:href="${'/cart/' + cart.product.id + '/del'}" type="button" class="btn btn-danger">
 							<i class="fas fa-trash"></i>
-						</button></td>
-					<td><img src="images/products/fideos.jpg" width="120" height="auto"></td>
-					<td><h6 class="text-cart">Fideo Don Vitorio</h6></td>
-					<td><div class="product-quantity">
-							<input type="number" value="1" min="1">
+						</a></td>
+					<td><img th:src="${'/images/products/products' + cart.product.id + '.jpg'}" width="120" height="auto"></td>
+					<td><h6  th:text="${cart.product.name}"class="text-cart"></h6></td>
+					<td><div class="product-quantity" th:each="cart: @{cart.quantity}">
+							<input type="number" value="1" min="1" >
 						</div></td>
-					<td><h6 class="text-cart">S/.2.50</h6></td>
+					<td><h6 th:text="${'S/.'+ cart.product.price+'0'}"class="text-cart"></h6></td>
 				</tr>
 
-				<tr>
-					<th scope="row"></th>
-					<td><button type="button" class="btn btn-danger">
-							<i class="fas fa-trash"></i>
-						</button></td>
-					<td><img src="images/products/papas_lays.jpg" width="120" height="auto"></td>
-					<td><h6 class="text-cart">Lays Clasicas</h6></td>
-					<td><div class="product-quantity">
-							<input type="number" value="1" min="1">
-						</div></td>
-					<td><h6 class="text-cart">S/.2.50</h6></td>
-				</tr>
-				<tr>
-					<th scope="row"></th>
-					<td><button type="button" class="btn btn-danger">
-							<i class="fas fa-trash"></i>
-						</button></td>
-					<td><img src="images/products/lata_durazno.jpg" width="120"
-						height="auto"></td>
-					<td><h6 class="text-cart">Arica Duraznos</h6></td>
-					<td><div class="product-quantity">
-							<input type="number" value="1" min="1">
-						</div></td>
-					<td><h6 class="text-cart">S/.2.50</h6></td>
-				</tr>
 
 			</tbody>
 
 		</table>
-		<div>
+		<div th:each="sale : ${sales}">
 			<div class="checkout">
 				<div class="total">Sub-Total</div>
-				<div class="money">S/.6.18</div>
+				<div class="money"  ><h6 ></h6></div>
+				
 			</div>
-			<a href="#" class="btn btn-success">Continuar</a>
+			<a th:href="@{'/cart/'+${sale.id}+'/sale'}" class="btn btn-success">Continuar</a>
 		</div>
 
 

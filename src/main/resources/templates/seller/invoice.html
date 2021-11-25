@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout :: head">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vendedor</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--Bootstrap.min css-->
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/bootstrap/css/bootstrap.min.css}">
+
+
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/fontawesome.min.css}" rel="stylesheet">
+<link th:href="@{/css/solid.min.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link th:href="@{/css/style-card.css}" rel="stylesheet">
+<link th:href="@{/css/styleDeliveryMan.css}" rel="stylesheet">
+
+<!-- Dashboard css -->
+<link th:href="@{/assets/css/style.css}" rel="stylesheet" />
 <!-- Custom scroll bar css-->
 <link
 	th:href="@{/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css}"
@@ -68,6 +81,12 @@
 <link rel="stylesheet"
 	th:href="@{/assets/plugins/rating/css/examples.css}">
 
+<!-- Notifications  css -->
+<link th:href="@{/assets/plugins/notify/css/jquery.growl.css}"
+	rel="stylesheet" />
+<link th:href="@{/assets/plugins/notify/css/notifIt.css}"
+	rel="stylesheet" />
+
 <!-- RatingThemes css-->
 <link rel="stylesheet"
 	th:href="@{/assets/plugins/rating/dist/themes/bars-1to10.css}">
@@ -94,45 +113,95 @@
 	<header th:replace="layout :: header"></header>
 
 
-	<div class="card" style="width: 50rem;">
-		<div class="card-body">
-			<h3 class="card-title">Bienvenido xxxx</h3>
+	<div class="row">
+		<a th:href="@{/seller}" style="margin-top: 20px; margin-left: 20px;"><button
+				type="button" class="btn btn-primary mb-1">
+				<i class="fa fa-arrow-left"></i> Volver
+			</button></a>
+		<div class="col-md-12" th:each="sale :${sales}">
+			<div class="card">
+				<div class="card-body">
 
+					<div class="d-flex">
+
+						<a class="header-brand" th:href="@{/seller/invoice}"> <img
+							alt="logo" class="header-brand-img"
+							src="/images/Logochiki-end.png">
+						</a>
+						<div class="text-right ml-auto">
+							<h2 class="mb-1">Invoice #0010</h2>
+							<p class="mb-1" style="-webkit-text-stroke-width: thin;"
+								th:text="${sale.sale}">
+								<span class="font-weight-semibold">Invoice Date :</span>
+							</p>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-lg-6 ">
+							<p class="h3">Invoice Form:</p>
+
+						</div>
+						<div class="col-lg-6 text-right">
+							<p class="h3">Invoice To:</p>
+							<address
+								th:text="${sale.seller.name} + ' ' + ${sale.seller.lastName}"></address>
+						</div>
+					</div>
+					<div class="table-responsive push">
+						<table class="table table-bordered table-hover mb-0">
+							<tbody>
+								<tr class=" " th:with="aux=0">
+									<th class="text-center " style="width: 1%"></th>
+									<th>Product</th>
+									<th class="text-center" style="width: 1%">Quantity</th>
+									<th class="text-right">Unit Price</th>
+									<th class="text-right">Sub Total</th>
+								</tr>
+								<tr style="font-weight: bold;"
+									th:each="product :${sale.products}">
+									<td class="text-center" th:text="${product.id}"></td>
+									<td>
+										<p class="font-w600 mb-1" th:text="${product.name}"></p>
+										<div class="text-muted">
+											<div class="text-muted" th:text="${product.category.type}"></div>
+										</div>
+									</td>
+									<td class="text-center" th:text="${product.quantity}"></td>
+									<td class="text-right" th:text="${product.price}"></td>
+									<td class="text-right"
+										th:text="${product.price} * ${product.quantity}"></td>
+								</tr>
+
+								<tr>
+									<td colspan="4"
+										class="font-weight-bold text-uppercase text-right">Total</td>
+									<td class="font-weight-bold text-right h4"
+										th:text="${totalAmount}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+
+				<div class="card-footer text-right">
+					<button type="button" class="btn btn-primary mb-1" onclick="not1()">
+						<i class="si si-wallet"></i> Receive Money
+					</button>
+					<button type="button" class="btn btn-info mb-1"
+						onclick="javascript:window.print();">
+						<i class="si si-printer"></i> Print Invoice
+					</button>
+				</div>
+
+			</div>
 		</div>
-		<table class="table">
-
-			<tbody>
-
-
-				<tr>
-					<th scope="row"></th>
-
-					<td><img src="images/deliveryman/chamo.jpg" width="120"
-						height="auto"></td>
-
-				</tr>
-
-			</tbody>
-
-		</table>
-
-		<div class="general-div">
-			<a th:href="@{'/seller/' + 1 + '/paymentTypes/'}" class="btn btn-primary">Métodos de Pago</a> <a
-				th:href="@{/seller/invoice}" class="btn btn-primary">Boleta/Factura
-				de pagos de Venta</a> <a th:href="@{/seller/orders-shipped}"
-				class="btn btn-primary">Ver Lista de Ordenes Enviadas</a>
-
-		</div>
-		<div class="general-div">
-			<a th:href="@{'/seller/' + 1 + '/complaint-replies/'}" class="btn btn-primary">Ver Respuestas de
-				Reclamaciones </a> <a th:href="@{/seller/sales-graph}" class="btn btn-primary">Ver
-				Estdísticas de Ventas</a> <a th:href="@{/seller/help}"
-				class="btn btn-primary">Ayuda</a>
-		</div>
-
 	</div>
+	<!-- end row -->
 
 	<footer th:replace="layout :: footer"> </footer>
+
 	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 	<!-- Jquery js-->
 	<script th:src="@{/assets/js/vendors/jquery-3.2.1.min.js}"></script>
@@ -195,7 +264,18 @@
 	<script th:src="@{/assets/plugins/rating/jquery.barrating.js}"></script>
 	<script th:src="@{/assets/plugins/rating/js/examples.js}"></script>
 
+	<!-- Accordion js-->
+	<script th:src="@{/assets/js/accordiation.js}"></script>
 
+	<!-- Popover js -->
+	<script th:src="@{/assets/js/popover.js}"></script>
+
+
+	<!-- Notifications js -->
+	<script th:src="@{/assets/plugins/notify/js/rainbow.js}"></script>
+	<script th:src="@{/assets/plugins/notify/js/sample.js}"></script>
+	<script th:src="@{/assets/plugins/notify/js/jquery.growl.js}"></script>
+	<script th:src="@{/assets/plugins/notify/js/notifIt.js}"></script>
 
 	<!-- Custom js-->
 	<script th:src="@{/assets/js/custom.js}"></script>
