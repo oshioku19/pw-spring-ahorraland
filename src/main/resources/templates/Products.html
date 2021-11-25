@@ -54,7 +54,7 @@
                 <img th:src="${'/images/products/products' + product.id + '.jpg'}" class="card-img-top" alt="products">
                 <h2 th:text="${'Ahora: '+'S/. '+ product.price }"></h2>
                 <h6 th:text="${ 'Expiracion: '+ product.expiration}"></h6>
-                 <a th:href="${'/products/'+product.id+'/Add'}">
+                 <a th:href="${'/'+product.id+'/Add'}">
                 <button class="button-add">Agregar</button></a>
             </div>
 

@@ -30,6 +30,7 @@ import pe.edu.upc.pwspringahorraland.models.entity.Consumer;
 import pe.edu.upc.pwspringahorraland.models.entity.PaymentType;
 import pe.edu.upc.pwspringahorraland.models.entity.Sale;
 import pe.edu.upc.pwspringahorraland.models.entity.Shipping;
+import pe.edu.upc.pwspringahorraland.utils.ProductSearch;
 
 @Controller
 @RequestMapping("/cart")
@@ -54,7 +55,7 @@ public class CartController {
 	private CategoryService categoryService;
 	
 	@GetMapping
-	public String cart(Model model,@ModelAttribute("category") Category category) {
+	public String cart(Model model,@ModelAttribute("category") Category category,  @ModelAttribute("productSearch") ProductSearch productSearch) {
 		
 		try {				
 			List<Sale>sales= saleService.getAll();
@@ -62,6 +63,7 @@ public class CartController {
 			model.addAttribute("sales", sales);
 			model.addAttribute("carts", carts);
 			model.addAttribute("listCategories", categoryService.getAll());
+			model.addAttribute("productSearch", productSearch);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -87,7 +89,7 @@ public class CartController {
 	
 	@GetMapping("{id}/sale")
 	public String sale (Model model,@PathVariable("id") Integer id,
-			@ModelAttribute("paymentType") PaymentType paymentType) {
+			@ModelAttribute("paymentType") PaymentType paymentType, @ModelAttribute("category") Category category,  @ModelAttribute("productSearch") ProductSearch productSearch) {
 			
 		try {			
 			Optional<Sale>optional= saleService.findById(id);
@@ -98,6 +100,8 @@ public class CartController {
 			model.addAttribute("paymentTypes", paymentTypes);
 			model.addAttribute("consumers", consumers);
 			model.addAttribute("shippings", shippings);
+			model.addAttribute("listCategories", categoryService.getAll());
+			model.addAttribute("productSearch", productSearch);
 			
 			
 		} catch (Exception e) {
@@ -108,11 +112,13 @@ public class CartController {
 	}
 	
 	@PostMapping("savesale")
-	public String saveSale(Model model, @ModelAttribute("sale") Sale sale ) {
+	public String saveSale(Model model, @ModelAttribute("sale") Sale sale , @ModelAttribute("category") Category category,  @ModelAttribute("productSearch") ProductSearch productSearch) {
 		
 		try {
 			Sale saleSaved = saleService.update(sale);
 			model.addAttribute("sale",saleSaved);
+			model.addAttribute("listCategories", categoryService.getAll());
+			model.addAttribute("productSearch", productSearch);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

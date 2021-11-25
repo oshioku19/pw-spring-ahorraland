@@ -25,10 +25,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 				.antMatchers("/", "/css/**", "/js/**", "/images/**", "/login/**",
-						"/iniciar","/users/new", "/users/list", "/home" ,"/user/save", "/login/saveseller","/login/saveconsumer","/elegir", "/login/newseller","/login/newconsumer")
+						"/iniciar","/users/new", "/users/list", "/home" ,"/user/save", "/login/saveseller","/login/saveconsumer","/elegir", "/login/newseller","/login/newconsumer", "/{id}/Add",
+						"/products/confirm","/iniciar", "/cart", "{cart,sale}", "/cart/{id}/del", "/cart/removeAll", "/cart/{id}/sale", "/cart/savesale", "complaintEdit", 
+						"/seller/{sellerId}/complaint-replies", "/seller/complaint-replies/{complaintRepliesId}", "/deliveryman", "/deliveryman/detail/{deliveryManId}", "/deliveryman/deliveryman/new", "/deliveryman/saveNew",
+						"/deliveryman/map")
 				.permitAll().anyRequest().authenticated().and().formLogin().permitAll().loginPage("/login").loginProcessingUrl("/login")
 				.defaultSuccessUrl("/home").permitAll()
-				.and().logout().permitAll().and().exceptionHandling().accessDeniedPage("/error");
+				.and().logout().permitAll().and().exceptionHandling();
 	}
 
 	@Autowired

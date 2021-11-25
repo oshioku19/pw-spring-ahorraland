@@ -81,7 +81,7 @@ public class PrincipalController {
         return "redirect:/home";
     }
     @PostMapping("products/confirm")
-    public String confirmSale(Model model, @RequestBody RequestCart body) {
+    public String confirmSale(Model model, @RequestBody RequestCart body,  @ModelAttribute("category") Category category, @ModelAttribute("productSearch") ProductSearch productSearch) {
         try {
             Cart objCart = new Cart();
             Product objProduct = new Product();
@@ -96,6 +96,8 @@ public class PrincipalController {
             objtSale.setId(1);
             objCart.setSale(objtSale);
             cartService.create(objCart);
+            model.addAttribute("listCategories", categoryService.getAll());
+			model.addAttribute("productSearch", productSearch);
 
         }catch (Exception e) {
             e.printStackTrace();

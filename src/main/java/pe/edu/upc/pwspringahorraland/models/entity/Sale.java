@@ -20,80 +20,85 @@ import javax.persistence.TemporalType;
 @SequenceGenerator(name = "Sale_sale_id_seq", initialValue = 1, allocationSize = 1)
 public class Sale {
 
-	@Id	
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "Sale_sale_id_seq")
-	@Column(name="CSale", columnDefinition = "NUMERIC(4)", nullable=false)
-	private int id;
-	
-	@Column(name="DSale")
-	@Temporal(TemporalType.DATE)
-	private Date sale;
-	
-	@Column(name="MTotal")
-	private int amount;
-	
-	@OneToOne
-	@JoinColumn(name="CShipping", nullable =false )
-	private Shipping shipping;
-	
-	@ManyToOne
-	@JoinColumn(name="CPaymentType", nullable =false )
-	private PaymentType paymentTye;
-	
-	@ManyToOne
-	@JoinColumn(name="CConsumer", nullable =false )
-	private Consumer consumer;
+	@Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "Sale_sale_id_seq")
+    @Column(name="CSale", nullable=false)
+    private Integer id;
 
-	// getter and setter
-	public int getId() {
-		return id;
-	}
+    @Column(name="DSale")
+    private String dsale;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @Column(name="MTotal")
+    private double amount;
 
-	public Date getSale() {
-		return sale;
-	}
+    @OneToOne
+    @JoinColumn(name="CShipping", nullable =false )
+    private Shipping shipping;
 
-	public void setSale(Date sale) {
-		this.sale = sale;
-	}
+    @ManyToOne
+    @JoinColumn(name="CPaymentType", nullable =false )
+    private PaymentType paymentType;
 
-	public int getmTotal() {
-		return amount;
-	}
+    @ManyToOne
+    @JoinColumn(name="CConsumer", nullable =false )
+    private Consumer consumer;
 
-	public void setmTotal(int amount) {
-		this.amount = amount;
-	}
+    // getter and setter
 
-	public Shipping getShipping() {
-		return shipping;
-	}
 
-	public void setShipping(Shipping shipping) {
-		this.shipping = shipping;
-	}
 
-	public PaymentType getPaymentTye() {
-		return paymentTye;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setPaymentTye(PaymentType paymentTye) {
-		this.paymentTye = paymentTye;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public Consumer getConsumer() {
-		return consumer;
-	}
 
-	public void setConsumer(Consumer consumer) {
-		this.consumer = consumer;
-	}
-	
 
+
+    public String getDsale() {
+        return dsale;
+    }
+
+    public void setDsale(String dsale) {
+        this.dsale = dsale;
+    }
+
+    public Shipping getShipping() {
+        return shipping;
+    }
+
+    public void setShipping(Shipping shipping) {
+        this.shipping = shipping;
+    }
+
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
+
+
+
+    public void setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public Consumer getConsumer() {
+        return consumer;
+    }
+
+    public void setConsumer(Consumer consumer) {
+        this.consumer = consumer;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 	
 	
 }
