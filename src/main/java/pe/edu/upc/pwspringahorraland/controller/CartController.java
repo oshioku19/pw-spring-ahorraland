@@ -123,7 +123,7 @@ public class CartController {
 			e.printStackTrace();
 		}
 		
-		return"redirect:/";
+		return"redirect:/home";
 	}
 	
 }
