@@ -18,12 +18,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import pe.edu.upc.pwspringahorraland.business.crud.CategoryService;
 import pe.edu.upc.pwspringahorraland.business.crud.ConsumerService;
 import pe.edu.upc.pwspringahorraland.business.crud.SellerService;
 import pe.edu.upc.pwspringahorraland.business.crud.UserService;
+import pe.edu.upc.pwspringahorraland.models.entity.Category;
 import pe.edu.upc.pwspringahorraland.models.entity.Consumer;
 import pe.edu.upc.pwspringahorraland.models.entity.Seller;
 import pe.edu.upc.pwspringahorraland.models.entity.Users;
+import pe.edu.upc.pwspringahorraland.utils.ProductSearch;
 
 @Controller
 @RequestMapping
@@ -37,6 +40,9 @@ public class LoginController {
 	
 	@Autowired
 	private ConsumerService consumerService;
+	
+	@Autowired
+	private CategoryService categoryService;
 
 	@GetMapping("/login")
 	public String login(@RequestParam(value = "error", required = false) String error,
@@ -85,7 +91,7 @@ public class LoginController {
 	
 	
 	@PostMapping("/login/saveconsumer")
-	public String saveUserConsumer(@ModelAttribute("userconsumer") @Valid Consumer consumer, BindingResult result, Model model)
+	public String saveUserConsumer(@ModelAttribute("userconsumer") @Valid Consumer consumer, BindingResult result, Model model, @ModelAttribute("category") Category category,  @ModelAttribute("productSearch") ProductSearch productSearch)
 			throws Exception {
 		if (result.hasErrors()) {
 			return "/RegistroConsumer";
@@ -96,6 +102,8 @@ public class LoginController {
 			if (rpta > 0) {
 				model.addAttribute("mensaje", "Ya existe");
 				model.addAttribute("userconsumer", new Consumer());
+				model.addAttribute("listCategories", categoryService.getAll());
+				model.addAttribute("productSearch", productSearch);
 				return "/RegistroConsumer";
 			} else {
 				model.addAttribute("mensaje", "Se guardó correctamente");
@@ -105,7 +113,7 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login/saveseller")
-	public String saveUserSeller(@ModelAttribute("userseller") @Valid Seller seller, BindingResult result, Model model)
+	public String saveUserSeller(@ModelAttribute("userseller") @Valid Seller seller, BindingResult result, Model model, @ModelAttribute("category") Category category,  @ModelAttribute("productSearch") ProductSearch productSearch)
 			throws Exception {
 		if (result.hasErrors()) {
 			return "/RegistroSeller";
@@ -116,6 +124,8 @@ public class LoginController {
 			if (rpta > 0) {
 				model.addAttribute("mensaje", "Ya existe");
 				model.addAttribute("userseller", new Seller());
+				model.addAttribute("listCategories", categoryService.getAll());
+				model.addAttribute("productSearch", productSearch);
 				return "RegistroSeller";
 			} else {
 				model.addAttribute("mensaje", "Se guardó correctamente");

@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pe.edu.upc.pwspringahorraland.business.crud.CategoryService;
 import pe.edu.upc.pwspringahorraland.business.crud.DeliveryManService;
 import pe.edu.upc.pwspringahorraland.business.crud.ShippingService;
+import pe.edu.upc.pwspringahorraland.models.entity.Category;
 import pe.edu.upc.pwspringahorraland.models.entity.DeliveryMan;
 import pe.edu.upc.pwspringahorraland.models.entity.Shipping;
 
@@ -25,12 +27,16 @@ public class ShippingController {
 	@Autowired
 	private DeliveryManService deliveryManService;
 	
+	@Autowired
+	private CategoryService categoryService;
+	
 	
 	@GetMapping
-	public String listShipping(Model model) {
+	public String listShipping(Model model, @ModelAttribute("category") Category category) {
 		try {
 			List<Shipping> shippings = shippingService.getAll();
 			model.addAttribute("deliveryMans",shippings);
+			model.addAttribute("listCategories", categoryService.getAll());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
