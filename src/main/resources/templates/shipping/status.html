@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+
+<title>Estado de Envio</title>
+
+
+</head>
+<body>
+	<header th:replace="layout :: header"> </header>
+
+
+	<section class="status">
+
+
+		<div class="container py-5">
+
+			<div class="row text-center">
+				<div class="col-lg-8 mx-auto col-md-12 col-sm-12 col-12">
+					<h1>Estado de pedido</h1>
+				</div>
+			</div>
+
+			<div class="row pt-5">
+				<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+					<div class="row">
+						<label for="staticEmail" class="col-sm-2 col-form-label">Ubicacion:</label>
+						<input class="form-control" type="text" value="UPC - Campus San Isidro, Avenida General Salaverry, San Isidro"
+							aria-label="readonly input example" readonly>
+					</div>
+					</br>
+					<div class="mb-3 row">
+						<label for="staticEmail" class="col-sm-2 col-form-label">Estado:</label>
+						<div class="col-sm-10">
+							<input type="text" readonly class="form-control-plaintext"
+								id="staticEmail" value="Envio en trasito">
+						</div>
+
+					</div>
+
+
+
+				</div>
+
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.360551307992!2d-77.05213614963905!3d-12.08745119139822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8560da88193%3A0xc96db500423dd90c!2sUPC%20-%20Campus%20San%20Isidro!5e0!3m2!1ses!2spe!4v1637035446327!5m2!1ses!2spe"
+					width="600" height="450" style="border: 0;" allowfullscreen=""
+					loading="lazy"></iframe>
+
+			</div>
+
+		</div>
+
+
+
+	</section>
+
+	<footer th:replace="layout :: footer"> </footer>
+</body>
+</html>

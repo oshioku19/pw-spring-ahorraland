@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+
+<title>Repartidor</title>
+</head>
+<body>
+ <header th:replace="layout :: header"> </header> 
+	
+	
+	<section class="deliveryMan">
+
+		<div class="container py-5" >
+			<div class = "row text-center">
+				<div class="col-lg-8 mx-auto col-md-12 col-sm-12 col-12">
+					<h1>Repartidores</h1>
+					<p class="p1">AhorraLand cuenta con entrega de productos a domicilio con el
+						respectivo protocolo. Nuestros repartidores disponibles para
+						entregar su compra:</p>
+				</div>
+			</div>
+			
+			<!-- REPARTIDOR VERSION 1 -->
+			<div class="row pt-5">
+				<div class="col-lg-6 col-md-12 col-sm-12 col-12"
+					th:each="deliveryMan : ${deliveryMans}">
+					<div class="row">
+						<div class="col-lg-5 col-md-6 col-sm-6 col-6">
+							<img style="border-radius: 20px;" th:src="${'images/deliveryman/dm' + deliveryMan.id + '.jpg'}" class="img-fluid" alt=""></img>
+						</div>
+						<div class="col-lg-7 col-md-6 col-sm-6 col-6 pt-3">
+							<h5 th:text="${deliveryMan.name}">Name</h5>
+							<small>DISPONIBLE</small>
+							<p th:text="${deliveryMan.bio}">Bio</p>
+							<span><i class="fas fa-star" th:text="${deliveryMan.rating}"></i></span>
+							<div class="buttons-deliveryman">
+
+								<form>
+									<a th:href="@{'/deliveryman/detail/'+${deliveryMan.id}}">
+										<input type="button" class="btn btn-light" value="Ver Perfil">
+									</a>
+									<a th:href="@{/deliveryman/new}">
+										<input type="button" class="btn btn-light" value="Elegir repartidor">
+									</a>
+								</form>
+	
+
+							</div>
+						</div>
+					</div>
+					<br>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+	<footer th:replace="layout :: footer"> </footer>
+</body>
+</html>

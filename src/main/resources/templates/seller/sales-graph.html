@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+
+<title>Vendedor</title>
+
+<!--Bootstrap.min css-->
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/bootstrap/css/bootstrap.min.css}">
+
+
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/fontawesome.min.css}" rel="stylesheet">
+<link th:href="@{/css/solid.min.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link th:href="@{/css/style-card.css}" rel="stylesheet">
+<link th:href="@{/css/styleDeliveryMan.css}" rel="stylesheet">
+
+<!-- Dashboard css -->
+<link th:href="@{/assets/css/style.css}" rel="stylesheet" />
+<!-- Custom scroll bar css-->
+<link
+	th:href="@{/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css}"
+	rel="stylesheet" />
+
+<!-- Sidemenu css -->
+<link th:href="@{/assets/plugins/toggle-sidebar/full-sidemenu-dark.css}"
+	rel="stylesheet" />
+
+<!--Daterangepicker css-->
+<link
+	th:href="@{/assets/plugins/bootstrap-daterangepicker/daterangepicker.css}"
+	rel="stylesheet" />
+
+<!-- Rightsidebar css -->
+<link th:href="@{/assets/plugins/sidebar/sidebar.css}" rel="stylesheet">
+
+<!-- Sidebar Accordions css -->
+<link
+	th:href="@{/assets/plugins/accordion1/css/easy-responsive-tabs.css}"
+	rel="stylesheet">
+
+<!-- Owl Theme css-->
+<link th:href="@{/assets/plugins/owl-carousel/owl.carousel.css}"
+	rel="stylesheet">
+
+<!-- Morris  Charts css-->
+<link th:href="@{/assets/plugins/morris/morris.css}" rel="stylesheet" />
+
+<!-- File Uploads css-->
+<link th:href="@{/assets/plugins/fileuploads/css/dropify.css}"
+	rel="stylesheet" type="text/css" />
+
+<!--Daterangepicker css-->
+<link
+	th:href="@{/assets/plugins/bootstrap-daterangepicker/daterangepicker.css}"
+	rel="stylesheet" />
+
+<!-- Time picker css-->
+<link th:href="@{/assets/plugins/time-picker/jquery.timepicker.css}"
+	rel="stylesheet" />
+
+<!-- Date Picker css-->
+<link th:href="@{/assets/plugins/date-picker/spectrum.css}"
+	rel="stylesheet" />
+
+<!---Font icons css-->
+<link th:href="@{/assets/plugins/iconfonts/plugin.css}" rel="stylesheet" />
+<link th:href="@{/assets/plugins/iconfonts/icons.css}" rel="stylesheet" />
+<link th:href="@{/assets/fonts/fonts/font-awesome.min.css}"
+	rel="stylesheet">
+
+<!-- Notifications  css -->
+<link th:href="@{/assets/plugins/notify/css/jquery.growl.css}"
+	rel="stylesheet" />
+<link th:href="@{/assets/plugins/notify/css/notifIt.css}"
+	rel="stylesheet" />
+
+<!-- Rating css-->
+<link rel="stylesheet"
+	th:href="@{/assets/plugins/rating/css/examples.css}">
+
+<!-- Data table css -->
+<link
+	th:href="@{assets/plugins/datatable/dataTables.bootstrap4.min.css}"
+	rel="stylesheet" />
+<link th:href="@{assets/plugins/datatable/responsivebootstrap4.min.css}"
+	rel="stylesheet" />
+
+</head>
+<body>
+	<header th:replace="layout :: header"></header>
+	<div class="row">
+		<div class="col-xl-3 col-lg-6 col-md-12 col-sm-12">
+			<div class="card card-counter bg-gradient-danger">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-4">
+							<i class="si si-eye mt-3 mb-0 text-white-transparent"></i>
+						</div>
+						<div class="col-8 text-center">
+							<div class="mt-4 mb-0 text-white">
+								<h2 class="mb-0">54,234</h2>
+								<p class="text-white mt-1" style="font-weight: bold;">Daily
+									Visitors</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- col end -->
+		<div class="col-xl-3 col-lg-6 col-md-12 col-sm-12">
+			<div class="card card-counter bg-gradient-secondary ">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-4">
+							<i class="si si-basket mt-3 mb-0 text-white-transparent"></i>
+						</div>
+						<div class="col-8 text-center">
+							<div class="mt-4 mb-0 text-white">
+								<h2 class="mb-0">80,956</h2>
+								<p class="text-white mt-1" style="font-weight: bold;">Daily Orders</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- col end -->
+		<div class="col-xl-3 col-lg-6 col-md-12 col-sm-12">
+			<div class="card card-counter bg-gradient-success">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-4">
+							<i class="si si-people mt-3 mb-0 text-white-transparent"></i>
+						</div>
+						<div class="col-8 text-center">
+							<div class="mt-4 mb-0 text-white">
+								<h2 class="mb-0">34,762</h2>
+								<p class="text-white mt-1" style="font-weight: bold;">Daily Customers</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- col end -->
+		<div class="col-xl-3 col-lg-6 col-md-12 col-sm-12">
+			<div class="card card-counter bg-gradient-pink">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-4">
+							<i class="si si-paper-plane mt-3 mb-0 text-white-transparent"></i>
+						</div>
+						<div class="col-8 text-center">
+							<div class="mt-4 mb-0 text-white">
+								<h2 class="mb-0" th:text="${totalAmount}"></h2>
+								<p class="text-white mt-1 " style="font-weight: bold;">Daily Revenue</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- col end -->
+	</div>
+
+	<div class="row ">
+		<div class="col-lg-12">
+			<div class="card ">
+				<div class="card-body p-4 text-dark">
+					<div class="statistics-info">
+						<div class="row text-center">
+							<div class="col-lg-3 col-md-6 mt-4 mb-4">
+								<div class="counter-status">
+									<div class="counter-icon text-danger">
+										<i class="si si-people"></i>
+									</div>
+									<h5 class="text-muted" style="font-weight: bold;">EMPLOYEE'S</h5>
+									<h2 class="counter text-primary mb-0">259</h2>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 mt-4 mb-4">
+								<div class="counter-status">
+									<div class="counter-icon text-warning">
+										<i class="si si-rocket"></i>
+									</div>
+									<h5 class="text-muted" style="font-weight: bold;">Total Sales</h5>
+									<h2 class="counter text-primary  mb-0">1765</h2>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6  mt-4 mb-4">
+								<div class="counter-statuss">
+									<div class="counter-icon text-primary">
+										<i class="si si-docs"></i>
+									</div>
+									<h5 class="text-muted" style="font-weight: bold;">Total Projects</h5>
+									<h2 class="counter text-primary  mb-0">846</h2>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 mt-4 mb-4">
+								<div class="counter-status">
+									<div class="counter-icon text-success">
+										<i class="si si-graph"></i>
+									</div>
+									<h5 class="text-muted" style="font-weight: bold;">Growth</h5>
+									<h2 class="counter text-primary  mb-0">7253</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="row">
+					<div class="col-6 border-right">
+						<div class="card-body iconfont text-center">
+							<h5 class="text-muted" style="font-weight: bold;">Total Cost Reduction</h5>
+							<h1 class="mt-4 text-dark mainvalue">$23,567</h1>
+							<p>
+								<span class="text-purple" style="font-weight: bold;"><i
+									class="fa fa-arrow-up text-success mr-1" style="font-weight: bold;"> </i>23% </span> in this year
+							</p>
+							<div class="progress progress-sm mb-0">
+								<div
+									class="progress-bar progress-bar-striped progress-bar-animated bg-info w-50"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="card-body iconfont text-center">
+							<h5 class="text-muted" style="font-weight: bold;">Total Cost Savings</h5>
+							<h1 class="mt-4 text-dark mainvalue">15.2%</h1>
+							<p>
+								<span class="text-purple" style="font-weight: bold;"><i
+									class="fa fa-arrow-down text-danger mr-1" style="font-weight: bold;"> </i>12%</span> in this year
+							</p>
+							<div class="progress progress-sm mb-0">
+								<div
+									class="progress-bar progress-bar-striped progress-bar-animated bg-red w-70"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12 col-lg-12 col-xl-6">
+				<div class="row">
+					<div class="col-sm-6 col-md-12 col-lg-6 col-xl-6">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex clearfix">
+									<div class="text-left mt-3">
+										<p class="card-text text-muted mb-1" style="font-weight: bold;">Total Orders</p>
+										<h2 class="mb-0 text-dark mainvalue">6,895</h2>
+									</div>
+									<div class="ml-auto">
+										<span
+											class="bg-primary-transparent icon-service text-primary ">
+											<i class="si si-briefcase  fs-2"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-12 col-lg-6 col-xl-6">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex clearfix">
+									<div class="text-left mt-3">
+										<p class="card-text text-muted mb-1" style="font-weight: bold;">Total Products</p>
+										<h2 class="mb-0 text-dark mainvalue">8,379</h2>
+									</div>
+									<div class="ml-auto">
+										<span class="bg-success-transparent icon-service text-success">
+											<i class="si si-layers fs-2"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-12 col-lg-6 col-xl-6">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex clearfix">
+									<div class="text-left mt-3">
+										<p class="card-text text-muted mb-1" style="font-weight: bold;">Total Feedbacks</p>
+										<h2 class="mb-0 text-dark mainvalue">1,345</h2>
+									</div>
+									<div class="ml-auto">
+										<span class="bg-danger-transparent icon-service text-danger">
+											<i class="si si-note  fs-2"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-12 col-lg-6 col-xl-6">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex clearfix">
+									<div class="text-left mt-3">
+										<p class="card-text text-muted mb-1" style="font-weight: bold;">Total Sold</p>
+										<h2 class="mb-0 text-dark mainvalue" th:text="${totalAmount}"></h2>
+									</div>
+									<div class="ml-auto">
+										<span class="bg-warning-transparent icon-service text-warning">
+											<i class="si si-basket-loaded  fs-2"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-12 col-lg-6 col-xl-6">
+						<div class="card bg-gradient-primary">
+							<div class="card-body text-center p-6">
+								<div class="sale-wideget">
+									<div class="text-white h3 mb-5">On Sales Now</div>
+									<span class="bg-white-transparent icon-service text-white">
+										<i class="si si-basket-loaded  fs-2"></i>
+									</span>
+									<div class="text-white h1 fs-3 mt-4 mb-2">5,672</div>
+									<h5 class="text-white fs-20">Items</h5>
+									<p class="text-white">Lorem ipsum dolor sit amet,
+										consectetur adipiscing elit, sed do eiusmod tempor incididunt
+										quis nostrud exercitation</p>
+									<a href="#" class="btn btn-danger text-white">Shop Now</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-lg-12 col-xl-6">
+				<div class="card">
+					<div class="card-header custom-header">
+						<div>
+							<h3 class="card-title">Recently Viewed</h3>
+							<h6 class="card-subtitle">Overview products sales
+								information</h6>
+						</div>
+						<div class="card-options">
+							<a href="" class="mr-4 text-default" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="true"> <span
+								class="fa fa-ellipsis-v"></span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right" role="menu">
+								<li><a href="#"><i class="si si-plus mr-2"></i>Add</a></li>
+								<li><a href="#"><i class="si si-trash mr-2"></i>Remove</a></li>
+								<li><a href="#"><i class="si si-eye mr-2"></i>View</a></li>
+								<li><a href="#"><i class="si si-settings mr-2"></i>More</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="card-body pt-3 pb-3">
+						<div class="memberblock mb-0">
+							<div class="row ">
+								<div
+									class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pl-1 pr-1 m-t-5 m-b-5">
+									<a href="" class="member"> <img
+										th:src="@{/images/products/atun.jpg}" alt="">
+										<div class="memmbername">Atun</div>
+									</a>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-4 pl-1 pr-1 m-t-5 m-b-5">
+									<a href="" class="member"> <img
+										th:src="@{/images/products/aceite.jpg}" alt="">
+										<div class="memmbername">Aceite</div>
+									</a>
+								</div>
+								<div
+									class="col-lg-4 col-md-4 col-sm-4 pl-1 pr-1 mb-0 m-t-5 m-b-5">
+									<a href="" class="member"> <img
+										th:src="@{/images/products/fideos.jpg}" alt="">
+										<div class="memmbername">Fideos</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header custom-header">
+						<div>
+							<h3 class="card-title">Sales Analyst</h3>
+							<h6 class="card-subtitle">Overview top products sales
+								information</h6>
+						</div>
+						<div class="card-options">
+							<a href="" class="mr-4 text-default" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="true"> <span
+								class="fa fa-ellipsis-v"></span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right" role="menu">
+								<li><a href="#"><i class="si si-plus mr-2"></i>Add</a></li>
+								<li><a href="#"><i class="si si-trash mr-2"></i>Remove</a></li>
+								<li><a href="#"><i class="si si-eye mr-2"></i>View</a></li>
+								<li><a href="#"><i class="si si-settings mr-2"></i>More</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-3 col-sm-6 text-center">
+								<h5 class="mb-1 text-muted">Today Sales</h5>
+								<h2 class=" mt-2 fs-2 mb-6 text-primary mainvalue">2,547</h2>
+							</div>
+							<div class="col-lg-3 col-sm-6 text-center">
+								<h5 class="mb-1 text-muted">Yesterday Sales</h5>
+								<h2 class=" mt-2 fs-2 mb-6 text-secondary mainvalue">3,937</h2>
+							</div>
+							<div class="col-lg-3 col-sm-6 text-center">
+								<h5 class="mb-1 text-muted">This Week Sales</h5>
+								<h2 class=" mt-2 fs-2 mb-6 text-success mainvalue">6,398</h2>
+							</div>
+							<div class="col-lg-3 col-sm-6 text-center">
+								<h5 class="mb-1 text-muted">This Month Sales</h5>
+								<h2 class=" mt-2 fs-2 mb-6 text-danger mainvalue">13,678</h2>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header custom-header">
+						<div>
+							<h3 class="card-title">Active Sales</h3>
+							<h6 class="card-subtitle">Sales</h6>
+						</div>
+						<div class="card-options">
+							<a href="" class="mr-4 text-default" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="true"> <span
+								class="fa fa-ellipsis-v"></span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right" role="menu">
+								<li><a href="#"><i class="si si-plus mr-2"></i>Add</a></li>
+								<li><a href="#"><i class="si si-trash mr-2"></i>Remove</a></li>
+								<li><a href="#"><i class="si si-eye mr-2"></i>View</a></li>
+								<li><a href="#"><i class="si si-settings mr-2"></i>More</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="chart-circle mt-lg-3" data-value="0.80"
+									data-thickness="10" data-color="#1753fc">
+									<canvas width="112" height="112"></canvas>
+									<div class="chart-circle-value">
+										<div class="fs-2">80%</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<h4 class="mb-5">Active Sales</h4>
+								<div class="mb-5">
+									<h5 class="mb-2 d-block">
+										<span class="fs-16"><b>74,526</b> Orders Shippeds</span> <span
+											class="float-right">80%</span>
+									</h5>
+									<div class="progress progress-md h-1">
+										<div
+											class="progress-bar progress-bar-striped progress-bar-animated bg-primary w-80"></div>
+									</div>
+								</div>
+								<div class="mb-0">
+									<h5 class="mb-2 d-block">
+										<span class="fs-16"><b>14,526</b> Orders Requests</span> <span
+											class="float-right">30%</span>
+									</h5>
+									<div class="progress progress-md h-1">
+										<div
+											class="progress-bar progress-bar-striped progress-bar-animated bg-danger w-30"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer th:replace="layout :: footer"> </footer>
+
+		<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+		<!-- Jquery js-->
+		<script th:src="@{/assets/js/vendors/jquery-3.2.1.min.js}"></script>
+
+		<!--Bootstrap.min js-->
+		<script th:src="@{/assets/plugins/bootstrap/popper.min.js}"></script>
+		<script th:src="@{/assets/plugins/bootstrap/js/bootstrap.min.js}"></script>
+
+		<!--Jquery Sparkline js-->
+		<script th:src="@{/assets/js/vendors/jquery.sparkline.min.js}"></script>
+
+		<!-- Chart Circle js-->
+		<script th:src="@{/assets/js/vendors/circle-progress.min.js}"></script>
+
+		<!-- Star Rating js-->
+		<script th:src="@{/assets/plugins/rating/jquery.rating-stars.js}"></script>
+
+		<!--Moment js-->
+		<script th:src="@{/assets/plugins/moment/moment.min.js}"></script>
+
+		<!-- Daterangepicker js-->
+		<script
+			th:src="@{/assets/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+
+		<!--Side-menu js-->
+		<script th:src="@{/assets/plugins/toggle-sidebar/sidemenu.js}"></script>
+
+		<!-- Sidebar Accordions js -->
+		<script
+			th:src="@{/assets/plugins/accordion1/js/easyResponsiveTabs.js}"></script>
+
+		<!-- Custom scroll bar js-->
+		<script
+			th:src="@{/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js}"></script>
+
+		<!--Owl Carousel js -->
+		<script th:src="@{/assets/plugins/owl-carousel/owl.carousel.js}"></script>
+		<script th:src="@{/assets/plugins/owl-carousel/owl-main.js}"></script>
+
+		<!-- Rightsidebar js -->
+		<script th:src="@{/assets/plugins/sidebar/sidebar.js}"></script>
+
+		<!-- Charts js-->
+		<script th:src="@{/assets/plugins/chart/chart.bundle.js}"></script>
+		<script th:src="@{/assets/plugins/chart/utils.js}"></script>
+
+		<!--Time Counter js-->
+		<script
+			th:src="@{/assets/plugins/counters/jquery.missofis-countdown.js}"></script>
+		<script th:src="@{/assets/plugins/counters/counter.js}"></script>
+
+		<!--Morris  Charts js-->
+		<script th:src="@{/assets/plugins/morris/raphael-min.js}"></script>
+		<script th:src="@{/assets/plugins/morris/morris.js}"></script>
+
+		<!-- Custom-charts js-->
+		<script th:src="@{/assets/js/index1.js}"></script>
+
+		<!--Rating js-->
+		<script th:src="@{/assets/plugins/rating/jquery.rating-stars.js}"></script>
+		<script th:src="@{/assets/plugins/rating/jquery.barrating.js}"></script>
+		<script th:src="@{/assets/plugins/rating/js/examples.js}"></script>
+
+		<!-- Accordion js-->
+		<script th:src="@{/assets/js/accordiation.js}"></script>
+
+		<!-- Data tables js-->
+		<script th:src="@{/assets/plugins/datatable/jquery.dataTables.min.js}"></script>
+		<script
+			th:src="@{/assets/plugins/datatable/dataTables.bootstrap4.min.js}"></script>
+		<script th:src="@{/assets/plugins/datatable/datatable.js}"></script>
+		<script th:src="@{/assets/plugins/datatable/datatable-2.js}"></script>
+		<script
+			th:src="@{/assets/plugins/datatable/dataTables.responsive.min.js}"></script>
+
+
+		<!-- Custom js-->
+		<script th:src="@{/assets/js/custom.js}"></script>
+</body>
+</html>

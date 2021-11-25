@@ -1,18 +1,14 @@
 package pe.edu.upc.pwspringahorraland.models.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Table(name="DeliveryMan",
@@ -27,42 +23,70 @@ public class DeliveryMan{
 	@Column(name = "NDeliveryMan", length = 50, nullable = false)
 	private String name;
 	
-	@OneToMany(mappedBy = "deliveryman", fetch = FetchType.LAZY)
-	private List<Shipping> shipping;
+	@Column(name = "TBio", nullable = false)
+	private String bio;
 	
-	// -- Constructor, Getter y Setter
-	public DeliveryMan() {
-		shipping=new ArrayList<Shipping>();
-	}
+	@Column(name = "TAddress", length = 50, nullable = false)
+	private String address;
+	
+	@Positive
+    @Column(name = "NumRating", length = 3, nullable = false)
+    private String rating;
+	
+	@Positive
+    @Column(name = "NumSales", nullable = false)
+    private String sales;
+	//--@OneToMany(mappedBy = "deliveryman", fetch = FetchType.LAZY)
+	//--private List<Shipping> shipping;
 
 	public Integer getId() {
 		return id;
 	}
 
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
-	public String getnDeliveryMan() {
+	public String getName() {
 		return name;
 	}
 
-
-	public void setnDeliveryMan(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-
-	public List<Shipping> getShipping() {
-		return shipping;
+	public String getBio() {
+		return bio;
 	}
 
-
-	public void setShipping(List<Shipping> shipping) {
-		this.shipping = shipping;
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getRating() {
+		return rating;
+	}
+
+	public void setRating(String rating) {
+		this.rating = rating;
+	}
+
+	public String getSales() {
+		return sales;
+	}
+
+	public void setSales(String sales) {
+		this.sales = sales;
+	}
+	
 	
 	
 }

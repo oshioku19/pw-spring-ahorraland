@@ -15,78 +15,74 @@ import javax.validation.constraints.NotNull;
 @Table(name = "Cart",
 indexes= {@Index(columnList="CSale", name="Cart_index_CSale"),
 		  @Index(columnList="CProduct", name="Cart_index_CProduct"),
-		})
+})
 @IdClass(value = CartId.class)
 public class Cart {
-	
+
 	@Id
-	@ManyToOne (fetch = FetchType.EAGER)
-	@JoinColumn(name="CSale",nullable =true)
-	private Sale sale;
-	
-	@Id
-	@ManyToOne (fetch = FetchType.EAGER)
-	@JoinColumn(name="CProduct",nullable =true)
-	private Product product;
-	
-	
-	@NotNull
-	@Column(name="QProduct",nullable = true)
-	private int quantity;
-	
-	
-	@Column(name="MPartialPrice",nullable = true)
-	private double partialPrice;
+    @ManyToOne (fetch = FetchType.EAGER)
+    @JoinColumn(name="CSale",nullable =true)
+    private Sale sale;
 
-	
-	
-	public Cart() {
-		super();
-	}
+    @Id
+    @ManyToOne (fetch = FetchType.EAGER)
+    @JoinColumn(name="CProduct",nullable =true)
+    private Product product;
 
 
-	public Sale getSale() {
-		return sale;
-	}
+    @NotNull
+    @Column(name="QProduct",nullable = true)
+    private int quantity;
 
 
-	public void setSale(Sale sale) {
-		this.sale = sale;
-	}
+    @Column(name="MPartialPrice",nullable = true)
+    private double partialPrice;
 
 
-	public Product getProduct() {
-		return product;
-	}
+
+    public Cart() {
+        super();
+    }
 
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+    public Sale getSale() {
+        return sale;
+    }
 
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public void setSale(Sale sale) {
+        this.sale = sale;
+    }
 
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+    public Product getProduct() {
+        return product;
+    }
 
 
-	public double getPartialPrice() {
-		return partialPrice;
-	}
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
 
-	public void setPartialPrice(double partialPrice) {
-		this.partialPrice = partialPrice;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
 
-	
-	
-	
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+
+    public double getPartialPrice() {
+        return partialPrice;
+    }
+
+
+    public void setPartialPrice(double partialPrice) {
+        this.partialPrice = partialPrice;
+    
+    }
 }
 

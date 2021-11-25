@@ -20,12 +20,7 @@ public interface CartRepository extends JpaRepository<Cart, CartId> {
 
 	List<Cart> findByProduct(Product product) throws Exception;
 
-	//@Query("SELECT sum(p.mprice) FROM Cart c "+"INNER join product p on c.Cproduct=p.Cproduct "
-			//+ "GROUP BY csale")
-	//public void getSuma();
 	
-	//@Query("SELECT sum(c.cproduct.price) FROM Cart c GROUP BY c.CSale")
-	//public double getSuma();
 
 	@Query("SELECT c FROM Cart c WHERE c.sale.id =:id")
 	List<Cart> filterByCart(@Param("id") Integer id);

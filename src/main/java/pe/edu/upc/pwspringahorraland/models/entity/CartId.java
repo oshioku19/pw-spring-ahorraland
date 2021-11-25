@@ -3,7 +3,7 @@ package pe.edu.upc.pwspringahorraland.models.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
-import org.springframework.lang.Nullable;
+
 
 
 public class CartId implements Serializable {

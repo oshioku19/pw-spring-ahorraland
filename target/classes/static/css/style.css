@@ -64,7 +64,7 @@ button {
 .button-add {
 	background-color: white;
 	color: black;
-	border: 2px solid #4CAF50; /* Green */
+	border: 2px solid rgb(94, 23, 235);
 	transition-duration: 0.4s;
 	position: absolute;
 	right: 15px;
@@ -72,9 +72,8 @@ button {
 }
 
 .button-add:hover {
-	background-color: #4CAF50; /* Green */
+	background-color: rgb(164, 153, 255); 
 }
-
 footer {
 	background-color:#A499FF;
 	color: white;

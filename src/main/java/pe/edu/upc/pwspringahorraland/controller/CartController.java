@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import ch.qos.logback.core.ConsoleAppender;
 import pe.edu.upc.pwspringahorraland.business.crud.CartService;
+import pe.edu.upc.pwspringahorraland.business.crud.CategoryService;
 import pe.edu.upc.pwspringahorraland.business.crud.ConsumerService;
 import pe.edu.upc.pwspringahorraland.business.crud.PaymentTypeService;
 import pe.edu.upc.pwspringahorraland.business.crud.SaleService;
 import pe.edu.upc.pwspringahorraland.business.crud.ShippingService;
 import pe.edu.upc.pwspringahorraland.models.entity.Cart;
+import pe.edu.upc.pwspringahorraland.models.entity.Category;
 import pe.edu.upc.pwspringahorraland.models.entity.Consumer;
 import pe.edu.upc.pwspringahorraland.models.entity.PaymentType;
 import pe.edu.upc.pwspringahorraland.models.entity.Sale;
@@ -48,14 +50,18 @@ public class CartController {
 	@Autowired
 	private ShippingService shippingService;
 	
+	@Autowired
+	private CategoryService categoryService;
+	
 	@GetMapping
-	public String cart(Model model) {
+	public String cart(Model model,@ModelAttribute("category") Category category) {
 		
 		try {				
 			List<Sale>sales= saleService.getAll();
 			List<Cart> carts= cartService.getAll();
 			model.addAttribute("sales", sales);
 			model.addAttribute("carts", carts);
+			model.addAttribute("listCategories", categoryService.getAll());
 			
 		}catch (Exception e) {
 			e.printStackTrace();

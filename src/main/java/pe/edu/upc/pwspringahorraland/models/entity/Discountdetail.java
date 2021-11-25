@@ -67,7 +67,13 @@ public class Discountdetail {
 	public void setSeller(Seller seller) {
 		this.seller = seller;
 	}
+
     
     
     
 }
+
+      
+    
+
+

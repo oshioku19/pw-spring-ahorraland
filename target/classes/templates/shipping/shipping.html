@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+
+<title>Envio</title>
+
+
+</head>
+<body>
+	<header th:replace="layout :: header"> </header>
+
+
+	<section class="shipping">
+
+		<div class="container py-5">
+			<div class="row text-center">
+				<div class="col-lg-8 mx-auto col-md-12 col-sm-12 col-12">
+					<h1>Formulario de Envio</h1>
+					<!-- <p class="p1"></p> -->
+				</div>
+			</div>
+
+			<!-- ENVIO -->
+			<form th:action="@{/deliveryman/saveNew}"
+				th:object="${shipping}">
+				<!--  <fieldset disabled>
+					<div class="form-group">
+						<label for="disabledTextInput">Repartidor</label> <input
+							type="text" id="disabledTextInput" class="form-control"
+							th:placeholder="${deliveryMan.name}">
+					</div>
+					</br>
+				</fieldset>-->
+
+				<!--  <div class="form-group">
+					<label for="id">ID de envio</label> <input type="text"
+						class="form-control" th:field="*{idShipping}" id="id"
+						required> </br>
+				</div>
+				-->
+
+				<div class="form-row">
+
+					
+					
+					<div class="form-group">
+                            <label for="date">Fecha de envio:</label> <input type="text" required
+                                th:field="*{shippedDate}" class="form-control" id="date"></input>
+                        </div>
+					</br>
+				</div>
+
+
+
+				<div class="form-group">
+					<label for="direction">Direccion de destino</label> <input
+						type="text" class="form-control" th:field="*{direction}"
+						id="direction" required> </br>
+				</div>
+
+
+
+
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="flat">Numero de piso/apartamento</label> <input
+							type="text" class="form-control" th:field="*{flat}"
+							id="flat"> </br>
+					</div>
+
+
+
+
+				</div>
+
+
+				<div class="form-group">
+					<label for="reference">Referencia</label> <input type="text"
+						class="form-control" th:field="*{reference}" id="reference">
+					</br>
+				</div>
+				
+				
+				<div class="form-group col-md-6">
+						<label for="flat">Repartidor</label>
+					</div>
+				<select class="form-select" th:field="*{deliveryman}">
+				
+					<option th:each="deliveryMan : ${deliveryMans}"
+						th:value="${deliveryMan.id}" th:text="${deliveryMan.name}">
+						One</option>
+				</select></br>
+
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</form>
+
+		</div>
+	</section>
+
+	<footer th:replace="layout :: footer"> </footer>
+</body>
+</html>

@@ -14,8 +14,7 @@ public interface CartService extends CrudService<Cart, CartId> {
 	List<Cart> findBySale(int sale)throws Exception;
 	List<Cart> findByProduct(Product product)throws Exception;
 
-	
-    List<Cart>filterByCart(@Param("id")Integer id);	
+	List<Cart>filterByCart(@Param("id")Integer id);	
     void deleteBySaleIdAndProductId(int idSale, int idProduct);
     void deleteCart ();
 }
