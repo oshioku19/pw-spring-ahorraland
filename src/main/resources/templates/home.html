@@ -5,10 +5,9 @@
 <title>AhorraLand</title>
 </head>
 <body>
-	<header th:replace="layout ::header">	
-	</header>
+	<header th:replace="layout ::header"> </header>
 	<main>
-	<div id="carouselExampleIndicators" class="carousel slide"
+		<div id="carouselExampleIndicators" class="carousel slide"
 			data-bs-ride="carousel">
 			<div class="carousel-indicators">
 				<button type="button" data-bs-target="#carouselExampleIndicators"
@@ -21,18 +20,17 @@
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="images/img2.png" class="d-block w-100">
+					<img th:src="@{images/img2.png}" class="d-block w-100">
 				</div>
 				<div class="carousel-item">
-					<img src="images/ofertas.png" class="d-block w-100">
+					<img th:src="@{images/ofertas.png}" class="d-block w-100">
 				</div>
 				<div class="carousel-item">
-                    <img src="images/img3.png" class="d-block w-100">
-                    <div class="carousel-caption d-none d-md-block">
-                        <a href="#" class="btn btn-light mx-9"> Registrarse</a>
-                        <br>
-                    </div>
-                </div>
+					<img th:src="@{images/img3.png}" class="d-block w-100">
+					<div class="carousel-caption d-none d-md-block">
+						<a href="#" class="btn btn-light mx-9"> Registrarse</a> <br>
+					</div>
+				</div>
 
 			</div>
 			<button class="carousel-control-prev" type="button"
@@ -46,133 +44,27 @@
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
+
 		<div class="page-content">
-		
-        <div class="product-container">
-            <h3>Aceite</h3>
-            <img src="images/products/aceite.jpg" />
-            <h1>S/.2.00</h1>
-            <button class="button-add" onclick="add('aceite', 50)">Agregar</button>
-        </div>
+			<div class="product-container" th:each="product: ${products}"
+				style="padding: 5px">
+				<h3 th:text="${product.name}"></h3>
+				<img th:src="${'/images/products/products' + product.id + '.jpg'}"
+					class="card-img-top" alt="products">
+				<h2 th:text="${'Ahora: '+'S/. '+ product.price }"></h2>
+				<h6 th:text="${ 'Expiracion: '+ product.expiration}"></h6>
+				<a th:href="${'/'+product.id+'/Add'}">
+					<button class="button-add">Agregar</button>
+				</a>
+			</div>
 
-        <div class="product-container">
-            <h3>Fideos</h3>
-            <img src="images/products/fideos.jpg" />
-            <h1>S/.3.00</h1>
-            <button class="button-add" onclick="add('fideos', 300)">Agregar</button>
-        </div>
+		</div>
 
-        <div class="product-container">
-            <h3>Atun</h3>
-            <img src="images/products/atun.jpg" />
-            <h1>S/.5.00</h1>
-            <button class="button-add" onclick="add('atun', 250)">Agregar</button>
-        </div>
 
-        <div class="product-container">
-            <h3>Lata de durazno</h3>
-            <img src="images/products/lata_durazno.jpg" />
-            <h1>S/.7.00</h1>
-            <button class="button-add" onclick="add('lata_durazno', 200)">Agregar</button>
-        </div>
-
-        <div class="product-container">
-            <h3>Leche condensada</h3>
-            <img src="images/products/leche_condensada.jpg" />
-            <h1>S/.6.00</h1>
-            <button class="button-add" onclick="add('leche_condensada', 10)">Agregar</button>
-        </div>
-
-        <div class="product-container">
-            <h3>Yogurt</h3>
-            <img src="images/products/yogurt.jpg" />
-            <h1>S/.4.50</h1>
-        <button class="button-add" onclick="add('yogurt', 650)" href="/Cart">Agregar</button>
-        </div>
-        
-        <div class="product-container">
-            <h3>Papas Lays</h3>
-            <img src="images/products/papas_lays.jpg" />
-            <h1>S/.1.00</h1>
-            <button class="button-add" onclick="add('papas_lays', 650)">Agregar</button>
-        </div>
-        
-        <div class="product-container">
-            <h3>Doritos</h3>
-            <img src="images/products/doritos.jpg" />
-            <h1>S/.1.50</h1>
-            <button class="button-add" onclick="add('doritos', 650)">Agregar</button>
-        </div>
-        
-         <div class="product-container">
-            <h3>Rosquitas</h3>
-            <img src="images/products/rosquitas.jpg" />
-            <h1>S/.2.50</h1>
-            <button class="button-add" onclick="add('rosquitas', 650)">Agregar</button>
-        </div>
-        
-        <div class="product-container">
-            <h3>galleta surtida</h3>
-            <img src="images/products/galleta_surtida.jpg" />
-            <h1>S/.3.00</h1>
-            <button class="button-add" onclick="add('galleta_surtida', 650)">Agregar</button>
-        </div>
-        
-         <div class="product-container">
-            <h3>Leche Gloria</h3>
-            <img src="images/products/leche.jpg" />
-            <h1>S/.2.50</h1>
-            <button class="button-add" onclick="add('leche', 650)">Agregar</button>
-        </div>
-        
-        <div class="product-container">
-            <h3>Oreo</h3>
-            <img src="images/products/oreo.jpg" />
-            <h1>S/.2.50</h1>
-            <button class="button-add" onclick="add('oreo', 650)">Agregar</button>
-        </div>
-        
-         <div class="product-container">
-            <h3>Almendras</h3>
-            <img src="images/products/almendras.jpg" />
-            <h1>S/.2.50</h1>
-            <button class="button-add" onclick="add('almendras', 650)">Agregar</button>
-        </div>
-        
-         <div class="product-container">
-            <h3>Suavitel</h3>
-            <img src="images/products/suavitel.jpg" />
-            <h1>S/.2.50</h1>
-            <button class="button-add" onclick="add('suavitel', 650)">Agregar</button>
-        </div>
-        
-          <div class="product-container">
-            <h3>Detergente Opal</h3>
-            <img src="images/products/detergente_opal.jpg" />
-            <h1>S/.2.50</h1>
-            <button class="button-add" onclick="add('detergente_opal', 650)">Agregar</button>
-        </div>
-        
-         <div class="product-container">
-            <h3>Colgate Luminous white</h3>
-            <img src="images/products/pastal_dental_colgate_blanqueamiento.jpg" />
-            <h1>S/.2.50</h1>
-            <button class="button-add" onclick="add('pastal_dental_colgate_blanqueamiento', 650)">Agregar</button>
-        </div>
-        
-         <div class="product-container">
-            <h3>Cepillo Colgate Pack x5</h3>
-            <img src="images/products/cepillo_colgate_limpieza_avanzada.jpg" />
-            <h1>S/.2.50</h1>
-            <button class="button-add" onclick="add('cepillo_colgate_limpieza_avanzada', 650)">Agregar</button>
-        </div>
-        
-    </div>
 
 	</main>
-	<footer th:replace="layout::footer" >
-</footer>
+	<footer th:replace="layout::footer"> </footer>
 	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-	
+
 </body>
 </html>

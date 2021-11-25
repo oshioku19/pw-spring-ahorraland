@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+<title>Carrito-Ahorraland</title>
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=gMRLixhaSbAeEtPknmLxTrZGbu7LJbVGgtCTv2oc9rIurxswCl6vEjR_VKBoISgVCc_goqTKdXg-rCdRv53aBhOrl6VUR0sEDpa9iiwe85UJ-_o6TU4cPLyJxTpnqfl8zo0yGAkhDsCogcTz1RuC0Q" charset="UTF-8"></script></head>
+<body>
+	<header th:replace="layout :: header"></header>
+	<div class="progress">
+		<div class="progress-bar" role="progressbar" style="width: 50%;"
+			aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50 %</div>
+	</div>
+
+	<div class="card" style="width: 50rem;">
+	<img style="margin-left: 43%;margin-top: 3%;"th:src="@{/images/payment3001.png}" width="90" height="auto" />
+	
+		<div class="card-body">
+			<h3 style="margin-left: 26%;"class="card-title">Elige tu medio de pago</h3>
+		</div>
+		<form th:action="@{/cart/savesale}" th:object="${sale}" method="post">
+
+			<div class="mb-3">
+				<input type="text" class="form-control" th:field="*{id}" , hidden="true">
+			</div>
+			<div class="mb-3">
+				<input type="text" data-date="" data-date-format="YYYY-MM-DD" class="form-control" th:field="*{dsale}" , hidden="true">
+			</div>
+			<div class="mb-3">
+				<input type="text" class="form-control" th:field="*{amount}", hidden="true">
+			</div>
+			<div class="mb-3">
+				<input type="text" class="form-control" th:field="*{shipping}", hidden="true">
+			</div>
+			<div class="mb-3">
+				<input type="text" class="form-control" th:field="*{consumer}", hidden="true">
+			</div>
+			<div class="mb-3" style="margin-left: 10%;">
+				<label for="paymentType " class="col-form-label col-sm-10 pt-0">Metodos
+					de pago</label>
+			</div>
+			<div class="col-sm-10" style="margin-left: 10%; margin-bottom: 20px;">
+				<select class="form-select" th:field="*{paymentType}">
+					<option th:each="paymentType : ${paymentTypes}"
+						th:value="${paymentType.id}" th:text="${paymentType.name}">One</option>
+				</select>
+			</div>
+
+			<div class="metodo">
+
+				<div class="col-sm-10">
+					<h6 style="margin-bottom: 20px;">Paga con Tarjeta</h6>
+					<input type="text" class="form-control" id="inputEmail3"
+						style="width: 400px;" placeholder="Numero de tarjeta">
+				</div>
+			</div>
+			<div class="metodo">
+
+				<div>
+					<label for="inputPassword3" class="col-sm-5 col-form-label">Mes
+						de Vencimiento</label> <input type="date" class="form-control"
+						id="inputEmail3" style="width: 200px;">
+
+				</div>
+
+				<div>
+					<label for="inputPassword3" class="col-sm-5 col-form-label">Anio
+						de vencimiento</label> <input type="date" class="form-control"
+						id="inputEmail3" style="width: 200px;">
+
+				</div>
+
+				<div>
+					<label for="inputPassword3" class="col-sm-5 col-form-label"></label>
+					<input type="text" class="form-control" id="inputEmail3"
+						placeholder="CVV" style="width: 200px;">
+
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-success">Continuar</button>
+			</div>
+		</form>
+
+
+
+	</div>
+	<footer th:replace="layout :: footer"> </footer>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

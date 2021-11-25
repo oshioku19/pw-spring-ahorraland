@@ -27,7 +27,7 @@ public class PaymentType {
     @Column(name = "NPaymentType",length = 50)
     private String name;
 
-    @OneToMany(mappedBy = "paymentTye", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "paymentType", fetch = FetchType.LAZY)
 	private List<Sale> sales;
 
     

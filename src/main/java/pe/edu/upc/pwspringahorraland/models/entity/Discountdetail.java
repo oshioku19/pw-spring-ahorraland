@@ -28,11 +28,45 @@ public class Discountdetail {
 
     @Id
     @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn(name="CProduct",columnDefinition="NUMERIC(4)")
+    @JoinColumn(name="CProduct")
     private Product product;
 
     @Id
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name="CSeller",columnDefinition="NUMERIC(4)")
     private Seller seller;
+
+	public int getPerDiscount() {
+		return perDiscount;
+	}
+
+	public void setPerDiscount(int perDiscount) {
+		this.perDiscount = perDiscount;
+	}
+
+	public Discount getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(Discount discount) {
+		this.discount = discount;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Seller getSeller() {
+		return seller;
+	}
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+      
+    
 }

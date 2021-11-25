@@ -4,6 +4,7 @@ package pe.edu.upc.pwspringahorraland.models.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,8 +13,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+
 
 @Entity
 @Table(name = "Consumer",
@@ -32,9 +37,11 @@ public class Consumer {
     @Column(name = "NLastname",length = 25)
     private String lastName;
 
-    @Column(name = "CIdentification", columnDefinition = "NUMERIC(8)")
-    private Integer identification;
+    @Pattern(regexp = "[0-9]{8}", message = "Escriba un Dni valido")
+    @Column(name = "dni",nullable = false, length = 15 )
+    private String dni;
 
+    @Email
     @Column(name = "TEmail",length = 50,nullable = false)
     private String email;
 
@@ -43,6 +50,9 @@ public class Consumer {
 
     @OneToMany(mappedBy = "consumer", fetch = FetchType.LAZY)
 	private List<Sale> sales;
+    
+	@OneToOne(cascade = CascadeType.ALL)
+	private Users users;
 
 	// -- Constructor, Getter y Setter
     public Consumer() {
@@ -73,12 +83,22 @@ public class Consumer {
 		this.lastName = lastName;
 	}
 
-	public Integer getIdentification() {
-		return identification;
+
+
+	public String getDni() {
+		return dni;
 	}
 
-	public void setIdentification(Integer identification) {
-		this.identification = identification;
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public Users getUsers() {
+		return users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
 	}
 
 	public String getEmail() {

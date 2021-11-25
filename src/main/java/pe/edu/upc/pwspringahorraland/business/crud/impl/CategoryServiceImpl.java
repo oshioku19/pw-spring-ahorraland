@@ -12,7 +12,6 @@ import pe.edu.upc.pwspringahorraland.models.repository.CategoryRepository;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
-
 	@Autowired
 	private CategoryRepository categoryRepository;
 	@Override
@@ -20,8 +19,8 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryRepository;
 	}
 	@Override
-	public List<Category> findByType(String type) throws Exception {
-		return categoryRepository.findByType(type);
+	public List<Category> listAllCategory() throws Exception {
+		return categoryRepository.findAll();
 	}
 
 }
