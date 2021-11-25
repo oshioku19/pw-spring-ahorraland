@@ -26,9 +26,14 @@ public class PrincipalController {
 
 	@Autowired
 	private CategoryService categoryService;
-
+	
+	
 	@GetMapping
-	public String home(Model model) {
+	public String home() {
+		return "Landing";
+	}
+	@GetMapping("/home")
+	public String home2(Model model) {
 		ProductSearch productSearch = new ProductSearch();
 		model.addAttribute("productSearch", productSearch);
 		try {
@@ -44,42 +49,9 @@ public class PrincipalController {
 		return "home";
 	}
 
-	@PostMapping("products")
-	public String searchProducts(Model model, @ModelAttribute("productSearch") ProductSearch productSearch)
-			throws Exception {
-
-		List<Product> products = new ArrayList<>();
-
-		try {
-			products = productService.findByNameContaining(productSearch.getName());
-			products = productService.findByPrice(productSearch.getPrice());
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
-		model.addAttribute("productSearch", productSearch);
-		model.addAttribute("category", new Category());
-		model.addAttribute("products", products);
-		model.addAttribute("listCategories", categoryService.getAll());
-		return "Products";
-	}
-
-	@PostMapping("productsByCategory")
-	public String searchProducts(Model model, @ModelAttribute("category") Category category) throws Exception {
-
-		List<Product> products = new ArrayList<>();
-
-		try {
-			products = productService.findByCategory(category.getId());
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
-		model.addAttribute("productSearch", new ProductSearch());
-		model.addAttribute("category", category);
-		model.addAttribute("products", products);
-		model.addAttribute("listCategories", categoryService.getAll());
-		return "Products";
+	@GetMapping("/iniciar")
+	public String login() {
+	    return "login";
 	}
 
 	// --@GetMapping("shipping")

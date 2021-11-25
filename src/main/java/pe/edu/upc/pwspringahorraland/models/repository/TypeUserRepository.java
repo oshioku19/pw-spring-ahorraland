@@ -3,9 +3,10 @@ package pe.edu.upc.pwspringahorraland.models.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import pe.edu.upc.pwspringahorraland.models.entity.IdentificationType;
+import pe.edu.upc.pwspringahorraland.models.entity.TypeUser;
+
 
 @Repository
-public interface IdentificationTypeRepository extends JpaRepository<IdentificationType, Integer> {
+public interface TypeUserRepository extends JpaRepository<TypeUser, Integer>{
 
 }

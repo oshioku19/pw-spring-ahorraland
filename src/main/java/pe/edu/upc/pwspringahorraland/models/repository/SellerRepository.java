@@ -11,4 +11,5 @@ import pe.edu.upc.pwspringahorraland.models.entity.Seller;
 public interface SellerRepository extends JpaRepository<Seller, Integer> {
 	List<Seller> findByName(String name)throws Exception;
 	List<Seller> findByLastName(String lastName)throws Exception;
+	
 }

@@ -32,7 +32,7 @@
 
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/">Inicio</a></li>
+							aria-current="page" th:href="@{/}">Inicio</a></li>
 					</ul>
 					
 					<form class="d-flex" th:action="@{/Search/productsByCategory}"
@@ -40,7 +40,7 @@
 						<select class="form-control"  th:field="*{id}" >
 							<option th:each="category: ${listCategories}" 
 									th:value="${category.id}"
-									th:text="${category.type}" th:selected="(${c.id} == *{id})"></option>
+									th:text="${category.type}" th:selected="(${category.id} == *{id})"></option>
 						</select>
 					<button type="submit" class="btn btn-outline-secondary mx-2">Aceptar</button> 
 					</form>

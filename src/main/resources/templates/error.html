@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" >
+<head th:replace="layout ::head">
+
+<title>AhorraLand</title>
+</head>
+<body>
+	<header > </header>
+<body class="perro">
+   
+    <div class="menu">
+        <div class="head">
+            <div class="search">
+                
+                    <p class="textitodeinicio">&nbsp;&nbsp;&nbsp;&nbsp;Bienvenidossss</p>
+                 
+            </div>
+            <div class="logo">
+                <ul>
+                    <li><i class="far fa-envelope"></i></li>
+                    <li><i class="far fa-bell"></i></li>
+                </ul>
+                <h2>AHORRALAND</h2>
+                <form th:action="@{/logout}" method="post"> <button><img src="/img/logout.png" alt=" ... "></button>
+                </form>
+            </div>
+        </div>
+        <div class="body">
+            
+            <ul>
+                
+                <li><a th:href="@{/home}">Inicio</a></li>
+             
+            </ul>
+        </div>
+    </div>
+
+    <section class="inicio" style="display: flex; justify-content: space-between; align-items: center;">
+
+        <div style="background-color: #F2F2F2;">
+            <img src="/img/error3.gif" style="padding: 0; margin-top: 70vh; height: 100vh; width: 100vh;" alt="Error">
+        </div>
+        <div >
+            <p style="width: 100vh; margin-top: 60vh; text-align: center;">¡Lo sentimos , no tienes acceso a esta seccion!</p>
+        </div>
+
+            
+    </section>
+
+    
+
+</body>
+
+
+</html>
+
+<!-- class="fas fa-search"
+lass="far fa-envelope"
+class="far fa-bell" -->
