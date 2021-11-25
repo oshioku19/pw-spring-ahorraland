@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import pe.edu.upc.pwspringahorraland.business.crud.ConsumerService;
 import pe.edu.upc.pwspringahorraland.business.crud.UserService;
 import pe.edu.upc.pwspringahorraland.models.entity.Consumer;
 import pe.edu.upc.pwspringahorraland.models.entity.Seller;
@@ -32,8 +33,11 @@ public class LoginController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ConsumerService consumerService;
 
-	@GetMapping(value = { "/login", "/" })
+	@GetMapping("/login")
 	public String login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout, Model model, Principal principal,
 			RedirectAttributes flash) {
@@ -58,8 +62,8 @@ public class LoginController {
 	@GetMapping("/login/new")
 	public String newUser(Model model) {
 		model.addAttribute("users", new Users());
-		model.addAttribute("seller", new Seller());
-		return "RegistroSeller";
+		model.addAttribute("userconsumer", new Consumer());
+		return "RegistroConsumer";
 	}
 	
 	@PostMapping("/login/save")
@@ -90,23 +94,23 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login/saveconsumer")
-	public String saveUserFreelancer(@ModelAttribute("userconsumer") @Valid Users user, BindingResult result, Model model)
+	public String saveUserFreelancer(@ModelAttribute("userconsumer") @Valid Consumer consumer, BindingResult result, Model model)
 			throws Exception {
 		if (result.hasErrors()) {
 			return "usuarios/user";
 		} else {
-			String bcryptPassword = passwordEncoder.encode(user.getPassword());
-			user.setPassword(bcryptPassword);
-			int rpta = userService.insert_consumer(user);
+			String bcryptPassword = passwordEncoder.encode(consumer.getUsers().getPassword());
+			consumer.getUsers().setPassword(bcryptPassword);
+			int rpta = consumerService.insert(consumer);
 			if (rpta > 0) {
 				model.addAttribute("mensaje", "Ya existe");
-				model.addAttribute("newUserConsumidor", new Users());
-				return "RegistroSeller";
+				model.addAttribute("userconsumer", new Consumer());
+				return "RegistroConsumer";
 			} else {
 				model.addAttribute("mensaje", "Se guardó correctamente");
 			}
 		}
-		return "redirect:/consumidor/new";
+		return "redirect:/login";
 	}
 	
 }

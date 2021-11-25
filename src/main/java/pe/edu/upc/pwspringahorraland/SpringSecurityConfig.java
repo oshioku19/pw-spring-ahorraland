@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import pe.edu.upc.pwspringahorraland.business.crud.impl.JpaUserDetailsService;
-import pe.edu.upc.pwspringahorraland.auth.handler.LoginSuccessHandler ;
 
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @Configuration
@@ -21,28 +20,19 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
-	@Autowired
-	private LoginSuccessHandler successHandler;
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		try {
-			http.authorizeRequests()
-			.antMatchers("/home/**").access("hasRole('ROLE_SELLER') or hasRole('ROLE_CONSUMER')") 
-			.antMatchers("//**").access("hasRole('ROLE_SELLER')")
-			.and()
-			.formLogin().successHandler(successHandler).loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/home")
-			.permitAll().and().logout().logoutSuccessUrl("/login").permitAll().and().exceptionHandling().accessDeniedPage("/error");
-		
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-		}
+		http.authorizeRequests()
+				.antMatchers("/", "/css/**", "/js/**", "/images/**", "/login/**",
+						"/users/new", "/users/list", "/home" ,"/user/save", "/login/new", "/login/save")
+				.permitAll().anyRequest().authenticated().and().formLogin().permitAll().loginPage("/login").permitAll()
+				.and().logout().permitAll().and().exceptionHandling().accessDeniedPage("/error");
 	}
 
 	@Autowired
 	public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
-		
+
 		build.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 
 	}

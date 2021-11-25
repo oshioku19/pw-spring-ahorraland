@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 
 
@@ -40,6 +41,7 @@ public class Consumer {
     @Column(name = "dni",nullable = false, length = 15 )
     private String dni;
 
+    @Email
     @Column(name = "TEmail",length = 50,nullable = false)
     private String email;
 

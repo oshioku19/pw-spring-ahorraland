@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService{
 		return rpta;
 	}
 	@Override
-	public Optional<Users> finById(Integer idUser) {
+	public Optional<Users> finById(int idUser) {
 		return userRepository.findById(idUser);
 	}
 

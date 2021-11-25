@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 	<title>AhorraLand</title>
 	<meta charset="UTF-8">
@@ -39,7 +39,7 @@
 					
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="username" placeholder="Ingrese su Usuario">
+						<input class="input100" type="text" name="username" id="username" placeholder="Ingrese su Usuario">
 						<span class="focus-input100"></span>
 						<span class="label-input100"></span>
 					</div>
@@ -68,13 +68,13 @@
 			
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" th:href="@{/home}" >
 							Login
 						</button>
 					</div>
 					
 					<div class="text-center p-t-46 p-b-20">
-						<a class="txt2" th:href="@{/new}">
+						<a class="txt2" th:href="@{/login/new}">
 							Registrate aqui
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>

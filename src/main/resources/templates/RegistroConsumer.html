@@ -18,19 +18,32 @@
 </head>
 <body>
     <div class="registration-form">
-        <form th:action="@{/save}" th:object="${users}" method="post">
+        <form th:action="@{/login/saveconsumer}" th:object="${userconsumer}" method="post">
             <div class="form-icon" style="background-color:#A499FF">
                 <span><i class="icon icon-user"></i></span>
             </div>
+            <label>ID:</label> <input type="text" class="form-control" readonly
+							th:field="*{users.id}"></input>
             <div class="form-group">
-                <input type="text" class="form-control item" id="username" placeholder="Username" th:field="*{username}">
+                <input type="text" class="form-control item" id="username" placeholder="Username" th:field="*{users.username}">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control item" id="password" placeholder="Password" th:field="*{password}">
+                <input type="password" class="form-control item" id="password" placeholder="Password" th:field="*{users.password}">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control item" id="email" placeholder="Email" th:field="*{email}">
             </div>
+            <div class="form-group">
+							<label for="name">Estado:</label>
+							<div class="col-sm-6">
+
+								<input type="checkbox" th:field="*{users.enabled}" class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small class="form-text text-danger"
+									th:if="${#fields.hasErrors('users.enabled')}"
+									th:errors="{users.enabled}"></small>
+							</div>
+						</div>
+            
             <div class="form-group">
                 <input type="text" class="form-control item" id="phone-number" placeholder="Phone Number" th:field="*{phoneNumber}">
             </div>

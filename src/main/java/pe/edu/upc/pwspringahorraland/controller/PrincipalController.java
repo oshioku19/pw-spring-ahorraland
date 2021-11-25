@@ -53,6 +53,11 @@ public class PrincipalController {
 	public String login() {
 	    return "login";
 	}
+	
+	@GetMapping("/Bienvenido")
+	public String Bienvenida() {
+	    return "Bienvenida";
+	}
 
 	// --@GetMapping("shipping")
 	// --public String shipping() {
