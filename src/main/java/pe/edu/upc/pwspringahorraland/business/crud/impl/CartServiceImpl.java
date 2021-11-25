@@ -55,12 +55,9 @@ public class CartServiceImpl implements CartService {
 		
 	}
 
-	@Transactional
-	@Override
-	public double getProducts() {		
-		return cartRepository.getProducts();
-	}
+	
 
+	
 	
 
 	
