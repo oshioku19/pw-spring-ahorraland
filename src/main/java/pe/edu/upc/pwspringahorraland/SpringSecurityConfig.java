@@ -14,30 +14,30 @@ import pe.edu.upc.pwspringahorraland.business.crud.impl.JpaUserDetailsService;
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private JpaUserDetailsService userDetailsService;
+    @Autowired
+    private JpaUserDetailsService userDetailsService;
 
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests()
-				.antMatchers("/", "/css/**", "/js/**", "/images/**", "/login/**",
-						"/iniciar","/users/new", "/users/list", "/home" ,"/user/save", "/login/saveseller","/login/saveconsumer","/elegir", "/login/newseller","/login/newconsumer", "/{id}/Add",
-						"/products/confirm","/iniciar", "/cart", "{cart,sale}", "/cart/{id}/del", "/cart/removeAll", "/cart/{id}/sale", "/cart/savesale", "complaintEdit", 
-						"/seller/{sellerId}/complaint-replies", "/seller/complaint-replies/{complaintRepliesId}", "/deliveryman", "/deliveryman/detail/{deliveryManId}", "/deliveryman/deliveryman/new", "/deliveryman/saveNew",
-						"/deliveryman/map")
-				.permitAll().anyRequest().authenticated().and().formLogin().permitAll().loginPage("/login").loginProcessingUrl("/login")
-				.defaultSuccessUrl("/home").permitAll()
-				.and().logout().permitAll().and().exceptionHandling();
-	}
+        http.authorizeRequests()
+                .antMatchers("/", "/css/**", "/js/**", "/images/**", "/login/**",
+                        "/iniciar","/users/new", "/users/list", "/home" ,"/user/save", "/login/saveseller","/login/saveconsumer","/elegir", "/login/newseller","/login/newconsumer", "/{id}/Add",
+                        "/products/confirm","/iniciar", "/cart", "{cart,sale}", "/cart/{id}/del", "/cart/removeAll", "/cart/{id}/sale", "/cart/savesale", "complaintEdit", 
+                        "complaintEdit/seller/{sellerId}/complaint-replies", "complaintEdit/seller/complaint-replies/{complaintRepliesId}", "/deliveryman", "/deliveryman/detail/{deliveryManId}", "/deliveryman/deliveryman/new", "/deliveryman/saveNew",
+                        "/deliveryman/map","/seller", "/seller/help" , "/seller/seller/list", "/seller/seller/seller")
+                .permitAll().anyRequest().authenticated().and().formLogin().permitAll().loginPage("/login").loginProcessingUrl("/login")
+                .defaultSuccessUrl("/home").permitAll()
+                .and().logout().permitAll().and().exceptionHandling();
+    }
 
-	@Autowired
-	public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
+    @Autowired
+    public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
 
-		build.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+        build.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 
-	}
+    }
 }

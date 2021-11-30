@@ -43,7 +43,7 @@ public class PrincipalController {
 		return "Landing";
 	}
 	@GetMapping("/home")
-	public String home2(Model model) {
+	public String home2(Model model, @ModelAttribute("category") Category category) {
 		ProductSearch productSearch = new ProductSearch();
 		model.addAttribute("productSearch", productSearch);
 		try {
@@ -60,7 +60,7 @@ public class PrincipalController {
 	}
 	
 	@GetMapping("{id}/Add")
-    public String setCart(Model model, @PathVariable("id") Integer id) {
+    public String setCart(Model model, @PathVariable("id") Integer id, @ModelAttribute("category") Category category, @ModelAttribute("productSearch") ProductSearch productSearch) {
         try {
 
             Cart objCart = new Cart();
@@ -72,6 +72,7 @@ public class PrincipalController {
             objtSale.setId(1);
             objCart.setSale(objtSale);
             cartService.create(objCart);
+            model.addAttribute("listCategories", categoryService.getAll());
 
         } catch (Exception e) {
             e.printStackTrace();

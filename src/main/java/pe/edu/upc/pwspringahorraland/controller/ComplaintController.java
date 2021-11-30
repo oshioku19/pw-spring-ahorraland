@@ -25,6 +25,7 @@ import pe.edu.upc.pwspringahorraland.models.entity.Consumer;
 import pe.edu.upc.pwspringahorraland.models.entity.PaymentType;
 import pe.edu.upc.pwspringahorraland.models.entity.Seller;
 import pe.edu.upc.pwspringahorraland.models.entity.Status;
+import pe.edu.upc.pwspringahorraland.utils.ProductSearch;
 
 
 @Controller
@@ -32,47 +33,48 @@ import pe.edu.upc.pwspringahorraland.models.entity.Status;
 @SessionAttributes("complaintEdit") 
 public class ComplaintController {
 
-	@Autowired
-	private ComplaintService complaintService;
+    @Autowired
+    private ComplaintService complaintService;
 
-	@Autowired
-	private SellerService sellerService;
-	
-	@Autowired
-	private CategoryService categoryService;
+    @Autowired
+    private SellerService sellerService;
+    
+    @Autowired
+    private CategoryService categoryService;
 
-	@GetMapping("/seller/{sellerId}/complaint-replies")
-	public String findByIdComplaintListar(Model model, @PathVariable("sellerId") Integer id, @ModelAttribute("category") Category category) {
-		try {
-			List<Complaint> complaints = complaintService.listComplaintBySellerId(id);
-			model.addAttribute("complaints", complaints);
+    @GetMapping("/seller/{sellerId}/complaint-replies")
+    public String findByIdComplaintListar(Model model, @PathVariable("sellerId") Integer id, @ModelAttribute("category") Category category, @ModelAttribute("productSearch") ProductSearch productSearch) {
+        try {
+            List<Complaint> complaints = complaintService.listComplaintBySellerId(id);
+            model.addAttribute("complaints", complaints);
 
-			Optional<Seller> optional = sellerService.findById(id);
-			if (optional.isPresent()) {
-				model.addAttribute("seller", optional.get());
-				model.addAttribute("listCategories", categoryService.getAll());
-				return "/seller/complaint-replies";
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-		return "redirect:/seller/" + id + "/complaint-replies";
-	}
+            Optional<Seller> optional = sellerService.findById(id);
+            if (optional.isPresent()) {
+                model.addAttribute("seller", optional.get());
+                model.addAttribute("listCategories", categoryService.getAll());
+                return "/seller/complaint-replies";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+        return "redirect:/seller/" + id + "/complaint-replies";
+    }
 
-	@GetMapping("/seller/complaint-replies/{complaintRepliesId}")
-	public String findById(Model model, @PathVariable("complaintRepliesId") Integer complaintRepliesId) {
-		try {
-			Optional<Complaint> optional = complaintService.findById(complaintRepliesId);
-			if (optional.isPresent()) {
-				model.addAttribute("complaint", optional.get());
-				return "seller/complaint-replies-view";
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-		return "redirect:/seller/" + complaintRepliesId + "/complaint-replies";
-	}
-	
+    @GetMapping("/seller/complaint-replies/{complaintRepliesId}")
+    public String findById(Model model, @PathVariable("complaintRepliesId") Integer complaintRepliesId,  @ModelAttribute("category") Category category, @ModelAttribute("productSearch") ProductSearch productSearch) {
+        try {
+            Optional<Complaint> optional = complaintService.findById(complaintRepliesId);
+            if (optional.isPresent()) {
+                model.addAttribute("complaint", optional.get());
+                model.addAttribute("listCategories", categoryService.getAll());
+                return "seller/complaint-replies-view";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+        return "redirect:/seller/" + complaintRepliesId + "/complaint-replies";
+    }
+    
 }

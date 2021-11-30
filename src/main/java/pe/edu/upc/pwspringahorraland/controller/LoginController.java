@@ -67,25 +67,47 @@ public class LoginController {
 	}
 	
 	@GetMapping("/login/new")
-	public String newUser(Model model) {
+	public String newUser(Model model, @ModelAttribute("category") Category category,  @ModelAttribute("productSearch") ProductSearch productSearch) {
 		model.addAttribute("users", new Users());
 		model.addAttribute("userconsumer", new Consumer());
+		try {
+			model.addAttribute("listCategories", categoryService.getAll());
+			model.addAttribute("productSearch", productSearch);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 		return "RegistroConsumer";
 	}
 	
 	
 	
 	@GetMapping("/login/newconsumer")
-	public String newUserConsumer(Model model) {
+	public String newUserConsumer(Model model, @ModelAttribute("category") Category category,  @ModelAttribute("productSearch") ProductSearch productSearch) {
 		model.addAttribute("usuario", new Users());
 		model.addAttribute("userconsumer", new Consumer());
+		try {
+			model.addAttribute("listCategories", categoryService.getAll());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("productSearch", productSearch);
 		return "RegistroConsumer";
 	}
 	
 	@GetMapping("/login/newseller")
-	public String newUserSeller(Model model) {
+	public String newUserSeller(Model model, @ModelAttribute("category") Category category,  @ModelAttribute("productSearch") ProductSearch productSearch) {
 		model.addAttribute("usuario", new Users());
 		model.addAttribute("userseller", new Seller());
+		try {
+			model.addAttribute("listCategories", categoryService.getAll());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("productSearch", productSearch);
 		return "RegistroSeller";
 	}
 	

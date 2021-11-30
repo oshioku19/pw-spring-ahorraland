@@ -50,19 +50,8 @@
 		
 
 
-	</main>
-	<div class="page-content">
-			<div class="product-container" th:each="product: ${products}"
-				style="padding: 3px">
-				<h3 th:text="${product.name}"></h3>
-				<img th:src="${'/images/products/products' + product.id + '.jpg'}" class="card-img-top" alt="products">
-				<h2 th:text="${product.price}"></h2>
-				 <a th:href="${product.id+'/Add'}">
-				<button class="button-add">Agregar</button></a>
-			</div>
-		</div>
-	<footer th:replace="layout::footer" >
-</footer>
+	
+
 
 
 		<div class="page-content">
